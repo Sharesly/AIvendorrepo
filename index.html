@@ -62,7 +62,8 @@
   'columns': createTableColumns(),
 
   'createdRow': function( row, data, dataIndex ) {
-    if ( data[3] !== "" ) {
+    console.log('created row!');
+    if ( data[3] != "" ) {
       $(row).addClass( data[3] );
     }
   }
