@@ -63,8 +63,8 @@
 
   'createdRow': function( row, data, dataIndex ) {
     console.log(data);
-      $(row).children('.priority').addClass(data.priority.toLowerCase().replace(/^\s+|\s+$/gm,'-'));
-      $(row).children('.status').addClass(data.status.toLowerCase().replace(/^\s+|\s+$/gm,'-'));
+      $(row).children('.priority').addClass(data.priority);
+      $(row).children('.status').addClass(data.status);
   }
 
 
