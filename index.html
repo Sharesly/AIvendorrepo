@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <!--Include required JavaScript libraries
+    -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+  </head>
+  <body>
+
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+//load the data from the Google Sheet
+$.ajax({
+  url: "https://sheets.googleapis.com/v4/spreadsheets/1Ym_DjK2JNfwv5HeTvF8wVtmOg-TXQZKwzEJg5gJunuA/values/A:M?key=AIzaSyD8Y28YJpVhE4XlVlOoA74Ws47YdPz5nGA"
+})
+.done(function( json ) {
+  var myData = json['values']; //spreadsheet data lives in an array with the name values
+     //rewrite data to an object with key-value pairs. This is also a chance to rename or ignore columns.
+     //only a few columns are used for this application - different columns are used in the full new books list
+     myData= myData.map(function( n, i ) {
+         var myObject = {
+           title:n[0],
+           featured:n[1],
+           almaid:n[5],
+           isbn:n[6]
+         };
+         return myObject;
+     });
+     myData.splice(0,1); //remove the first row, which contains the orginal column headers
+     console.log(myData);
+});
+});
+
+  </script>
+
+
+  </body>
+</html>
