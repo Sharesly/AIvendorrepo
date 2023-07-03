@@ -1,7 +1,7 @@
-.MEDIUM {
+.table.MEDIUM {
   background-color:yellow;
 }
 
-.NOT {
+.table.NOT {
   background-color:red;
 }
