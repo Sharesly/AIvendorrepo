@@ -59,7 +59,13 @@
        return myData;
      }
    },
-  'columns': createTableColumns()
+  'columns': createTableColumns(),
+
+  'createdRow': function( row, data, dataIndex ) {
+    if ( data[3] !== "" ) {
+      $(row).addClass( data[3] );
+    }
+  }
 
 
     });
