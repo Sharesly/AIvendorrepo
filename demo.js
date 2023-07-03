@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-  // create table headers
+  // configure table columns
   function createTableColumns(){
 
     var tableColumns =   [
@@ -20,7 +20,9 @@ $(document).ready(function(){
   // create the table container and object
   $('#googleSheetsDataTable').html('<table cellpadding="0" cellspacing="0" border="0" class="display table" id="data-table-container" style="width:100%"></table>');
 
+//this function creates the datatable and selects configuration options
   var oTable = $('#data-table-container').DataTable({
+    //get the data via AJAX from Google Sheets
     'ajax' : {
    url:'https://sheets.googleapis.com/v4/spreadsheets/1QzT3tUeBBd7R7NWbpVIPM9G_fI_DH2knKKZeP82PDY0/values/A:G?key=AIzaSyCmqnBijhOsTPfft3WE6rYAfQ1tERXPoAg',
    cache: true,
@@ -43,9 +45,11 @@ $(document).ready(function(){
      return myData;
    }
  },
+ //initial order by column 6, the default sort
 'order': [[ 6, "asc" ]],
+//use the column definition above to configure the columns
 'columns': createTableColumns(),
-
+//this functionruns after each row is created - used here to add CSS classes for styling based on cell content
 'createdRow': function( row, data, dataIndex ) {
     $(row).children('.priority').addClass(data.priority);
     $(row).children('.status').addClass(data.status);
