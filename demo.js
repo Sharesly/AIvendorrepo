@@ -40,7 +40,6 @@ $(document).ready(function(){
          return myObject;
      });
      myData.splice(0,1); //remove the first row, which contains the orginal column headers
-     console.log(myData);
      return myData;
    }
  },
@@ -48,7 +47,6 @@ $(document).ready(function(){
 'columns': createTableColumns(),
 
 'createdRow': function( row, data, dataIndex ) {
-  console.log(data);
     $(row).children('.priority').addClass(data.priority);
     $(row).children('.status').addClass(data.status);
 }
