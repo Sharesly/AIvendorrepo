@@ -1,7 +1,7 @@
-td.MEDIUM {
+table.dataTable td.MEDIUM {
   background-color:yellow;
 }
 
-td.NOT {
+table.dataTable td.NOT {
   background-color:red;
 }
