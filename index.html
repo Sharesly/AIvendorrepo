@@ -28,7 +28,7 @@
 		      {'data': 'assigned', 'title': 'Assigned To', 'className':'assigned', "defaultContent": ""},
 		      {'data': 'priority', 'title': 'Priority', 'className':'priority', "defaultContent": ""},
 		      {'data': 'targetDate', 'title': 'Target Date', 'className':'targetDate', "defaultContent": ""},
-          {'data': 'status', 'title': 'Status', 'className':'Status', "defaultContent": ""},
+          {'data': 'status', 'title': 'Status', 'className':'status', "defaultContent": ""},
 	       ];
     return tableColumns;
 }
@@ -63,7 +63,8 @@
 
   'createdRow': function( row, data, dataIndex ) {
     console.log(data);
-      $(row).children('.priority').addClass('test');
+      $(row).children('.priority').addClass(data.priority);
+      $(row).children('.status').addClass(data.status);
   }
 
 
