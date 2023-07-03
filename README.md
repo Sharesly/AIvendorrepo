@@ -1,2 +1,2 @@
 # datatables-demo
-Demonstration and testing repo for using Datatables with Google Sheets.
+Demonstration and testing repo for using DataTables with Google Sheets.
