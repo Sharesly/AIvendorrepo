@@ -7,20 +7,62 @@
 
   </head>
   <body>
+    <!--The script will write the table to this div
+    -->
+    <div id="googleSheetsDataTable">
+    </div>
+
 
 
   <script type="text/javascript">
   $(document).ready(function(){
-//load the data from the Google Sheet
-$.ajax({
-  url: "https://sheets.googleapis.com/v4/spreadsheets/1QzT3tUeBBd7R7NWbpVIPM9G_fI_DH2knKKZeP82PDY0/values/A:M?key=AIzaSyCmqnBijhOsTPfft3WE6rYAfQ1tERXPoAg"
-})
-.done(function( json ) {
-  var myData = json['values']; //spreadsheet data lives in an array with the name values
 
-     console.log(myData);
-});
-});
+
+    // create table headers
+    function createTableColumns(){
+
+      var tableColumns =   [
+		      {'data': 'task', 'title': 'Recommendation/Task Name', 'className':'task' },
+		      {'data': 'theme', 'title': 'Theme', 'className':'theme' },
+		      {'data': 'assigned', 'title': 'Assigned To', 'className':'assigned'},
+		      {'data': 'priority', 'title': 'Priority', 'className':'priority'},
+		      {'data': 'targetDate', 'title': 'Target Date', 'className':'targetDate'},
+          {'data': 'status', 'title': 'Status', 'className':'Status'},
+	       ];
+    return tableColumns;
+}
+
+    // create the table container and object
+    $('#googleSheetsDataTable').html('<table cellpadding="0" cellspacing="0" border="0" class="display table" id="data-table-container" style="width:100%"></table>');
+
+    var oTable = $('#data-table-container').DataTable({
+      'ajax' : {
+     url:'https://sheets.googleapis.com/v4/spreadsheets/1QzT3tUeBBd7R7NWbpVIPM9G_fI_DH2knKKZeP82PDY0/values/A:M?key=AIzaSyCmqnBijhOsTPfft3WE6rYAfQ1tERXPoAg',
+     cache: true,
+     'dataSrc': function(json) {
+       var myData = json['values']; //spreadsheet data lives in an array with the name values
+       //rewrite data to an object with key-value pairs. This is also a chance to rename or ignore columns
+       myData= myData.map(function( n, i ) {
+           var myObject = {
+             task:n[0],
+             theme:n[1],
+             assigned:n[2],
+             priority:n[3],
+             targetDate:n[4],
+             status:n[5]
+           };
+           return myObject;
+       });
+       myData.splice(0,1); //remove the first row, which contains the orginal column headers
+       return myData;
+     }
+   },
+  'columns': createTableColumns()
+
+
+    });
+
+  });
 
   </script>
 
