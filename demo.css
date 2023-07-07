@@ -15,6 +15,10 @@ table.dataTable td.NOT {
   background-color:red;
 }
 
+table.dataTable td.NOT:before {
+  content:'test';
+}
+
 table.dataTable td.COMPLETED {
   background-color:green;
 }
@@ -22,6 +26,3 @@ table.dataTable td.COMPLETED {
 table.dataTable td.IN-PROGRESS {
   background-color:yellow;
 }
-
-
-
