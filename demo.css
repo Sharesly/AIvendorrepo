@@ -8,9 +8,20 @@ table.dataTable td.HIGH {
 
 table.dataTable td.LOW {
   background-color:green;
+  color:white;
 }
 
 table.dataTable td.NOT {
   background-color:red;
 }
+
+table.dataTable td.COMPLETED {
+  background-color:green;
+}
+
+table.dataTable td.IN-PROGRESS {
+  background-color:yellow;
+}
+
+
 
