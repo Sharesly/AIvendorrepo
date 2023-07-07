@@ -36,7 +36,7 @@ $(document).ready(function(){
            assigned:n[2],
            priority:n[3],
            targetDate:n[4],
-           status:'<div class="status-inner">'&n[5]&'</div>'',
+           status:'<div class="status-inner">'&n[5]&'</div>',
            sort: n[6]
          };
          return myObject;
