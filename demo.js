@@ -36,7 +36,7 @@ $(document).ready(function(){
            assigned:n[2],
            priority:n[3],
            targetDate:n[4],
-           status:'<div class="status-inner">'&n[5]&'</div>',
+           status:n[5],
            sort: n[6]
          };
          return myObject;
@@ -57,6 +57,7 @@ buttons: [
 'createdRow': function( row, data, dataIndex ) {
     $(row).children('.priority').addClass(data.priority);
     $(row).children('.status').addClass(data.status);
+    $(row).children('.COMPLETED').append('<img src="icons/star.png">'');
 }
 
 
