@@ -47,6 +47,10 @@ $(document).ready(function(){
  },
  //initial order by column 6, the default sort
 'order': [[ 6, "asc" ]],
+dom: 'Bfrtip',
+buttons: [
+        'copy', 'excel', 'pdf'
+    ],
 //use the column definition above to configure the columns
 'columns': createTableColumns(),
 //this functionruns after each row is created - used here to add CSS classes for styling based on cell content
