@@ -57,7 +57,7 @@ buttons: [
 'createdRow': function( row, data, dataIndex ) {
     $(row).children('.priority').addClass(data.priority);
     $(row).children('.status').addClass(data.status);
-    $(row).children('.COMPLETED').append('<img src="icons/star.png">'');
+    $(row).children('.COMPLETED').append('<img src="icons/star.png">');
 }
 
 
