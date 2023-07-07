@@ -6,7 +6,11 @@ table.dataTable td.HIGH {
   background-color:red;
 }
 
+table.dataTable td.LOW {
+  background-color:green;
+}
 
 table.dataTable td.NOT {
   background-color:red;
 }
+
