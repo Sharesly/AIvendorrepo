@@ -23,6 +23,10 @@ table.dataTable td.COMPLETED {
   background-color:green;
 }
 
+table.dataTable img.table-icon {
+  height:200px;
+}
+
 table.dataTable td.IN-PROGRESS {
   background-color:yellow;
 }
