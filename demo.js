@@ -29,7 +29,7 @@ $("li.theme-button")
     */
 console.log($(this).attr('value'));	
 	oTable
-        .columns( 2 )
+        .columns( 1 )
         .search( $(this).attr('value'))
         .draw();
 
