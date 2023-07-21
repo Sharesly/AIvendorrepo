@@ -58,6 +58,7 @@ buttons: [
     $(row).children('.priority').addClass(data.priority);
     $(row).children('.status').addClass(data.status);
     $(row).children('.COMPLETED').append('<img class="table-icon" src="icons/star.png">');
+    $(row).children('.NOT').append('<img class="table-icon" src="icons/typewriter.png">');
 }
 
 
