@@ -16,6 +16,25 @@ $(document).ready(function(){
        ];
   return tableColumns;
 }
+function filterButtons() {
+$("ul.buttons li.filter-button")
+		.click(function(event){
+			event.preventDefault();
+			/* $ (".highlight-category").removeClass ("highlight-category");
+			mycategory=$(this).attr("id");
+			var highlightclass="li#"+mycategory;
+			$ (highlightclass)
+				.addClass ("highlight-category");
+    */
+
+			oTable
+        .columns( 1 )
+        .search( this.value )
+        .draw();
+
+		});
+}
+  
 
   // create the table container and object
   $('#googleSheetsDataTable').html('<table cellpadding="0" cellspacing="0" border="0" class="display table" id="data-table-container" style="width:100%"></table>');
@@ -53,6 +72,9 @@ buttons: [
     ],
 //use the column definition above to configure the columns
 'columns': createTableColumns(),
+'initComplete' : function (settings) {
+      filterButtons();
+    },
 //this functionruns after each row is created - used here to add CSS classes for styling based on cell content
 'createdRow': function( row, data, dataIndex ) {
     $(row).children('.priority').addClass(data.priority);
