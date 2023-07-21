@@ -22,6 +22,7 @@ table.dataTable td.COMPLETED {
 
 table.dataTable img.table-icon {
   height:60px;
+  margin-top:30px;
 }
 
 table.dataTable td.IN-PROGRESS {
