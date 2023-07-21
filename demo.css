@@ -1,5 +1,5 @@
 table.dataTable td.MEDIUM {
-  background-color:#E18F34;
+  background-color:#E5A823;
 }
 
 table.dataTable td.HIGH {
@@ -21,7 +21,7 @@ table.dataTable td.COMPLETED {
 }
 
 table.dataTable img.table-icon {
-  height:10px;
+  height:60px;
 }
 
 table.dataTable td.IN-PROGRESS {
