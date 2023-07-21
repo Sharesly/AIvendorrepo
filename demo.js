@@ -10,7 +10,7 @@ $(document).ready(function(){
         {'data': 'assigned', 'title': 'Assigned To', 'className':'assigned', "defaultContent": ""},
         {'data': 'priority', 'title': 'Priority', 'className':'priority', "defaultContent": ""},
         {'data': 'targetDate', 'title': 'Target Date', 'className':'targetDate', "defaultContent": ""},
-        {'data': 'status', 'title': 'Status', 'className':'status', "defaultContent": ""},
+        {'data': '', 'title': 'Status', 'className':'status', "defaultContent": ""},
         {'data': 'sort', 'title': 'Sort', 'visible':false}
 
        ];
@@ -36,7 +36,7 @@ $(document).ready(function(){
            assigned:n[2],
            priority:n[3],
            targetDate:n[4],
-           status:'',
+           status:n[5],
            sort: n[6]
          };
          return myObject;
