@@ -36,7 +36,7 @@ $(document).ready(function(){
            assigned:n[2],
            priority:n[3],
            targetDate:n[4],
-           status:n[5],
+           status:'',
            sort: n[6]
          };
          return myObject;
@@ -58,8 +58,8 @@ buttons: [
     $(row).children('.priority').addClass(data.priority);
     $(row).children('.status').addClass(data.status);
     $(row).children('.COMPLETED').append('<img class="table-icon" src="icons/correct.png">');
-    $(row).children('.NOT').append('<img class="table-icon" src="icons/pending">');
-    $(row).children('.IN-PROGRESS').append('<img class="table-icon" src="icons/setting.png">');
+    $(row).children('.NOT').append('<img class="table-icon" src="icons/pending.png">');
+    $(row).children('.IN-PROGRESS').append('<img class="table-icon" src="icons/settings.png">');
 }
 
 
