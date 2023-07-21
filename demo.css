@@ -12,18 +12,18 @@ table.dataTable td.LOW {
 }
 
 table.dataTable td.NOT {
-  background-color:red;
+  background-color:white;
 }
 
 
 table.dataTable td.COMPLETED {
-  background-color:green;
+  background-color:white;
 }
 
 table.dataTable img.table-icon {
-  height:200px;
+  height:60px;
 }
 
 table.dataTable td.IN-PROGRESS {
-  background-color:yellow;
+  background-color:white;
 }
