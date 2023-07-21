@@ -19,6 +19,7 @@ $(document).ready(function(){
 function filterButtons() {
 $("ul.buttons li.theme-button")
 		.click(function(event){
+		console.log('button clicked');	
 			event.preventDefault();
 			/* $ (".highlight-category").removeClass ("highlight-category");
 			mycategory=$(this).attr("id");
