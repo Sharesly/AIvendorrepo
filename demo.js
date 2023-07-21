@@ -57,8 +57,9 @@ buttons: [
 'createdRow': function( row, data, dataIndex ) {
     $(row).children('.priority').addClass(data.priority);
     $(row).children('.status').addClass(data.status);
-    $(row).children('.COMPLETED').append('<img class="table-icon" src="icons/star.png">');
+    $(row).children('.COMPLETED').append('<img class="table-icon" src="icons/correct.png">');
     $(row).children('.NOT').append('<img class="table-icon" src="icons/pending">');
+    $(row).children('.IN-PROGRESS').append('<img class="table-icon" src="icons/setting.png">');
 }
 
 
