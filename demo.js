@@ -19,7 +19,7 @@ $(document).ready(function(){
 function filterButtons() {
 $("li.theme-button")
 		.click(function(event){
-		console.log('button clicked');	
+		
 			event.preventDefault();
 			/* $ (".highlight-category").removeClass ("highlight-category");
 			mycategory=$(this).attr("id");
@@ -27,10 +27,10 @@ $("li.theme-button")
 			$ (highlightclass)
 				.addClass ("highlight-category");
     */
-
-			oTable
+console.log($(this).attr('value'));	
+	oTable
         .columns( 2 )
-        .search( this.value )
+        .search( $(this).attr('value'))
         .draw();
 
 		});
