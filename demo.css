@@ -1,13 +1,13 @@
 table.dataTable td.MEDIUM {
-  background-color:yellow;
+  background-color:#E18F34;
 }
 
 table.dataTable td.HIGH {
-  background-color:pink;
+  background-color:#FF3347;
 }
 
 table.dataTable td.LOW {
-  background-color:green;
+  background-color:#939597;
   color:white;
 }
 
@@ -21,7 +21,7 @@ table.dataTable td.COMPLETED {
 }
 
 table.dataTable img.table-icon {
-  height:60px;
+  height:10px;
 }
 
 table.dataTable td.IN-PROGRESS {
