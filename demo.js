@@ -29,7 +29,7 @@ $("li.theme-button")
     */
 
 			oTable
-        .columns( 1 )
+        .columns( 2 )
         .search( this.value )
         .draw();
 
