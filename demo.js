@@ -82,7 +82,7 @@ buttons: [
     $(row).children('.status').addClass(data.status);
     $(row).children('.COMPLETED').append('<img class="table-icon" src="icons/correct.png">');
     $(row).children('.NOT').append('<img class="table-icon" src="icons/pending.png">');
-    $(row).children('.IN-PROGRESS').append('<img class="table-icon" src="icons/settings.png">');
+    $(row).children('.IN-PROGRESS').append('<img class="table-icon" src="icons/settings.png">'); 
 }
 
 
