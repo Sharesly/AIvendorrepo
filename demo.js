@@ -17,7 +17,7 @@ $(document).ready(function(){
   return tableColumns;
 }
 function filterButtons() {
-$("li.theme-button")
+$("button.theme-button")
 		.click(function(event){
 		
 			event.preventDefault();
