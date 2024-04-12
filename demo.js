@@ -16,24 +16,12 @@ $(document).ready(function(){
        ];
   return tableColumns;
 }
-function filterButtons() {
-$("button.theme-button")
-		.click(function(event){
-		
-			event.preventDefault();
-			/* $ (".highlight-category").removeClass ("highlight-category");
-			mycategory=$(this).attr("id");
-			var highlightclass="li#"+mycategory;
-			$ (highlightclass)
-				.addClass ("highlight-category");
-    */
-console.log($(this).attr('value'));	
+function filterButtons(value) {
+
 	oTable
         .columns( 1 )
-        .search( $(this).attr('value'))
+        .search(value)
         .draw();
-
-		});
 }
   
 
