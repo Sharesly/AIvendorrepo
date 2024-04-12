@@ -16,15 +16,26 @@ $(document).ready(function(){
        ];
   return tableColumns;
 }
-function filterButtons(value) {
-
+function filterButtons() {
+$("button.theme-button")
+		.click(function(event){
+		
+			event.preventDefault();
+			/* $ (".highlight-category").removeClass ("highlight-category");
+			mycategory=$(this).attr("id");
+			var highlightclass="li#"+mycategory;
+			$ (highlightclass)
+				.addClass ("highlight-category");
+    */
+console.log($(this).attr('value'));	
 	oTable
+        .columns( 2 )
         .columns( 1 )
-        .search(value)
+        .search( $(this).attr('value'))
         .draw();
-}
-  
 
+		});
+}
   // create the table container and object
   $('#googleSheetsDataTable').html('<table cellpadding="0" cellspacing="0" border="0" class="display table" id="data-table-container" style="width:100%"></table>');
 
