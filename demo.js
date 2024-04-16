@@ -17,7 +17,7 @@ $(document).ready(function(){
   return tableColumns;
 }
 function filterButtons() {
-$(".btn.btn-outline-primary.filter-button")
+$(".form-check-input")
 		.click(function(event){
 		
 			event.preventDefault();
