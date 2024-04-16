@@ -41,6 +41,7 @@ console.log($(this).attr('value'));
 
 //this function creates the datatable and selects configuration options
   var oTable = $('#data-table-container').DataTable({
+   pageLength: 15,
     //get the data via AJAX from Google Sheets
     'ajax' : {
    url:'https://sheets.googleapis.com/v4/spreadsheets/1QzT3tUeBBd7R7NWbpVIPM9G_fI_DH2knKKZeP82PDY0/values/A:G?key=AIzaSyCmqnBijhOsTPfft3WE6rYAfQ1tERXPoAg',
