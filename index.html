@@ -19,14 +19,38 @@
 
   </head>
   <body>
-    <div class="buttons">
+    <!--<div class="buttons">
         <button type="button" class="btn btn-outline-primary filter-button" value="Budget"">Budget</button>
         <button type="button" class="btn btn-outline-primary filter-button" value="Leadership">Leadership</button>
         <button type="button" class="btn btn-outline-primary filter-button" value="Recruitment">Recruitment</button>
         <button type="button" class="btn btn-outline-primary filter-button" value="Retention, Training and Learning">Retention, Training and Learning</button>
         <button type="button" class="btn btn-outline-primary filter-button" value="Security">Security</button>
         <button type="button" class="btn btn-outline-primary filter-button" value="Student Assistant Retention, Training and Learning">Student Assistant Retention, Training and Learning</button>
-    </div> 
+    </div> -->
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="All Recommendations">
+      <label class="form-check-label" for="inlineRadio1">All Recommendations</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Budget">
+      <label class="form-check-label" for="inlineRadio2">Budget</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Leadership">
+      <label class="form-check-label" for="inlineRadio3">Leadership</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="Retention, Training and Learning">
+      <label class="form-check-label" for="inlineRadio4">Retention, Training and Learning</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="Security">
+      <label class="form-check-label" for="inlineRadio5">Security</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="Student Assistant Retention, Training and Learning">
+      <label class="form-check-label" for="inlineRadio6">Student Assistant Retention, Training and Learning</label>
+    </div>
     <!--The script will write the table to this div
     -->
     <div id="googleSheetsDataTable">
