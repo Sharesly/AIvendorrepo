@@ -12,7 +12,7 @@ table.dataTable td.LOW {
 }
 
 table.dataTable td.NOT {
-  background-color:white;
+  background-color:#FF3347;
 }
 
 
@@ -27,4 +27,17 @@ table.dataTable img.table-icon {
 
 table.dataTable td.IN-PROGRESS {
   background-color:white;
+}
+
+table.dataTable td.CAMPUS {
+  background-color:black;
+  color:white;
+}
+
+table.dataTable td.IN-PROGRESS {
+  background-color:#E18F34;
+}
+
+table.dataTable td.COMPLETED {
+  background-color:green;
 }
