@@ -20,7 +20,6 @@ function filterButtons() {
 $(".form-check-input")
 		.click(function(event){
 		
-			event.preventDefault();
 			/* $ (".highlight-category").removeClass ("highlight-category");
 			mycategory=$(this).attr("id");
 			var highlightclass="li#"+mycategory;
@@ -33,13 +32,14 @@ console.log($(this).attr('value'));
 		oTable
 	        .columns( 2 )
 	        .columns( 1 )
+	        .search( "")
 	        .draw();
 	}
 	else {
 		oTable
 	        .columns( 2 )
 	        .columns( 1 )
-	        .search( $(this).attr('value'))
+	        .search( "^" + $(this).attr('value')+"$", true, false)
 	        .draw();
 	}
 
