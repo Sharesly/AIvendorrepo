@@ -69,9 +69,6 @@ console.log($(this).attr('value'));
  //initial order by column 6, the default sort
 'order': [[ 6, "asc" ]],
 dom: 'Bfrtip',
-buttons: [
-        'copy', 'excel', 'pdf'
-    ],
 //use the column definition above to configure the columns
 'columns': createTableColumns(),
 'initComplete' : function (settings) {
