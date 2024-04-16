@@ -10,7 +10,7 @@ $(document).ready(function(){
         {'data': 'assigned', 'title': 'Assigned To', 'className':'assigned', "defaultContent": ""},
         {'data': 'priority', 'title': 'Priority', 'className':'priority', "defaultContent": ""},
         {'data': 'targetDate', 'title': 'Target Date', 'className':'targetDate', "defaultContent": ""},
-        {'data': '', 'title': 'Status', 'className':'status', "defaultContent": ""},
+        {'data': 'status', 'title': 'Status', 'className':'status', "defaultContent": ""},
         {'data': 'sort', 'title': 'Sort', 'visible':false}
 
        ];
