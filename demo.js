@@ -27,12 +27,21 @@ $(".form-check-input")
 			$ (highlightclass)
 				.addClass ("highlight-category");
     */
-console.log($(this).attr('value'));	
-	oTable
-        .columns( 2 )
-        .columns( 1 )
-        .search( $(this).attr('value'))
-        .draw();
+			
+console.log($(this).attr('value'));
+	if ($(this).attr('value') === 'All Recommendations') {
+		oTable
+	        .columns( 2 )
+	        .columns( 1 )
+	        .draw();
+	}
+	else {
+		oTable
+	        .columns( 2 )
+	        .columns( 1 )
+	        .search( $(this).attr('value'))
+	        .draw();
+	}
 
 		});
 }
