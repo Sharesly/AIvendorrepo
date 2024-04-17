@@ -1,18 +1,20 @@
 table.dataTable td.MEDIUM {
-  background-color:#E18F34;
+  background-color:#6D9DC5;
 }
 
 table.dataTable td.HIGH {
-  background-color:#FF3347;
-}
-
-table.dataTable td.LOW {
-  background-color:#939597;
+  background-color:#3066BE;
   color:white;
 }
 
+table.dataTable td.LOW {
+  background-color:#AEECEF;
+  color:black;
+}
+
 table.dataTable td.NOT {
-  background-color:#FF3347;
+  background-color:#3066BE;
+  color: white;
 }
 
 
@@ -25,8 +27,9 @@ table.dataTable img.table-icon {
   margin-top:30px;
 }
 
-table.dataTable td.IN-PROGRESS {
-  background-color:white;
+table.dataTable td.IN-PLANNING {
+  background-color:#80DED9;
+  color:white; 
 }
 
 table.dataTable td.CAMPUS {
@@ -35,11 +38,13 @@ table.dataTable td.CAMPUS {
 }
 
 table.dataTable td.IN-PROGRESS {
-  background-color:#E18F34;
+  background-color:#6D9DC5;
+  color:white;
 }
 
 table.dataTable td.COMPLETED {
-  background-color:green;
+  background-color:#00734B;
+  color:white;
 }
 
 .buttons {
