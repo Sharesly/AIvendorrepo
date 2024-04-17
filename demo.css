@@ -1,15 +1,21 @@
 table.dataTable td.MEDIUM {
   background-color:#6D9DC5;
+    text-align : center;
+    font-weight: bold;
 }
 
 table.dataTable td.HIGH {
   background-color:#3066BE;
   color:white;
+  text-align : center;
+  font-weight: bold;
 }
 
 table.dataTable td.LOW {
   background-color:#AEECEF;
   color:black;
+  text-align : center;
+  font-weight: bold;
 }
 
 table.dataTable td.NOT {
