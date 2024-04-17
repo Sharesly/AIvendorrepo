@@ -21,6 +21,8 @@ table.dataTable td.LOW {
 table.dataTable td.NOT {
   background-color:#3066BE;
   color: white;
+  text-align : center;
+  font-weight: bold;
 }
 
 
@@ -34,23 +36,31 @@ table.dataTable img.table-icon {
 }
 
 table.dataTable td.IN-PLANNING {
-  background-color:#80DED9;
-  color:white; 
+  background-color:#E1D89F;
+  color:black; 
+  text-align : center;
+  font-weight: bold;
 }
 
 table.dataTable td.CAMPUS {
   background-color:black;
   color:white;
+  text-align : center;
+  font-weight: bold;
 }
 
 table.dataTable td.IN-PROGRESS {
   background-color:#6D9DC5;
-  color:white;
+  color:black;
+  text-align : center;
+  font-weight: bold;
 }
 
 table.dataTable td.COMPLETED {
   background-color:#00734B;
   color:white;
+  text-align : center;
+  font-weight: bold;
 }
 
 .buttons {
