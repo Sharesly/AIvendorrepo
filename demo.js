@@ -49,7 +49,7 @@ console.log($(this).attr('value'));
   $('#googleSheetsDataTable').html('<table cellpadding="0" cellspacing="0" border="0" class="display table" id="data-table-container" style="width:100%"></table>');
 var url = 'https://sheets.googleapis.com/v4/spreadsheets/1QzT3tUeBBd7R7NWbpVIPM9G_fI_DH2knKKZeP82PDY0/values/A:G?key=AIzaSyCmqnBijhOsTPfft3WE6rYAfQ1tERXPoAg';
 if (window.location.href.indexOf("accountability-dashboard") > -1) {
-    url = 'https://docs.google.com/spreadsheets/d/1A_o9Nk-COZl21FqTKgcwhS_EU1wo3reEMvufj3fovWc/edit#gid=2074253193';
+    url = 'https://sheets.googleapis.com/v4/spreadsheets/1A_o9Nk-COZl21FqTKgcwhS_EU1wo3reEMvufj3fovWc';
 } 
 //this function creates the datatable and selects configuration options
   var oTable = $('#data-table-container').DataTable({
@@ -57,7 +57,7 @@ if (window.location.href.indexOf("accountability-dashboard") > -1) {
    pageLength: 15,
     //get the data via AJAX from Google Sheets
     'ajax' : {
-   url:'https://sheets.googleapis.com/v4/spreadsheets/1QzT3tUeBBd7R7NWbpVIPM9G_fI_DH2knKKZeP82PDY0/values/A:G?key=AIzaSyCmqnBijhOsTPfft3WE6rYAfQ1tERXPoAg',
+   url: url,
    cache: true,
    'dataSrc': function(json) {
      var myData = json['values']; //spreadsheet data lives in an array with the name values
