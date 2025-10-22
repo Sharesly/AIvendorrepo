@@ -58,31 +58,33 @@ if (window.location.href.indexOf("accountability-dashboard") > -1) {
    buttons: [],
    pageLength: 15,
     //get the data via AJAX from Google Sheets
-    'ajax' : {
-   url: url,
-   cache: true,
-   'dataSrc': function(json) {
-     var myData = json['values']; //spreadsheet data lives in an array with the name values
-     //rewrite data to an object with key-value pairs. This is also a chance to rename or ignore columns
-       myData = myData.map(function(n, i) {
-    var myObject = {
-      displayName:     n[0],
-      productName:     n[1],
-      aiTypes:         n[2],
-      releaseType:     n[3],
-      releaseNotes:    n[4],
-      toolDescription: n[5],
-      policyLinks:     n[6],
-      policyNotes:     n[7],
-      notesResources:  n[8],
-      lastReviewed:    n[9]
-    };
-    return myObject;
-  });
-     myData.splice(0,1); //remove the first row, which contains the orginal column headers
-     return myData;
-   }
- },
+    ajax: function (data, callback) {
+    fetch(urlCsv)
+      .then(r => r.text())
+      .then(csvText => {
+        const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+
+        // Map CSV headers -> your field names used in createTableColumns()
+        const rows = (parsed.data || []).map(row => ({
+          displayName:     row['Display Name'] || '',
+          productName:     row['Product Name (with Access Link)'] || '',
+          aiTypes:         row['AI Type(s)'] || '',
+          releaseType:     row['Release Type'] || '',
+          releaseNotes:    row['Release Notes'] || '',
+          toolDescription: row['Tool Description (Vendor-Provided)'] || '',
+          policyLinks:     row['AI Policy & Documentation Links'] || '',
+          policyNotes:     row['AI Policy Notes'] || '',
+          notesResources:  row['Notes & Resources'] || '',
+          lastReviewed:    row['Last Reviewed (Date)'] || ''
+        }));
+
+        callback({ data: rows });
+      })
+      .catch(err => {
+        console.error('CSV fetch/parse error:', err);
+        callback({ data: [] });
+      });
+  },
  //initial order by column 6, the default sort
 'order': [[ 6, "asc" ]],
 dom: 'Bfrtip',
