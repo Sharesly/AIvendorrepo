@@ -104,3 +104,52 @@ dom: 'Bfrtip',
   });
 
 });
+'ajax': {
+  url: url,
+  cache: true,
+  error: function (xhr, status, err) {
+    console.error('Sheets AJAX error:', status, err, xhr && xhr.responseText);
+  },
+  'dataSrc': function (json) {
+    console.log('Sheets JSON:', json);
+
+    // If the API call failed, json may be undefined or have an "error"
+    if (!json || json.error) {
+      console.error('Sheets API error payload:', json && json.error);
+      return [];
+    }
+
+    var myData = json.values || [];
+    console.log('Raw rows length (incl header):', myData.length);
+
+    // If your sheet DOES NOT have a header row in row 1, comment the next line:
+    if (myData.length > 0) {
+      // Remove header row (row 1)
+      myData.splice(0, 1);
+    }
+
+    // Filter out completely empty rows
+    myData = myData.filter(r => (r || []).some(cell => (cell || '').toString().trim() !== ''));
+
+    // Pad short rows so n[0]..n[9] exist
+    myData = myData.map(n => {
+      const row = Array.isArray(n) ? n.slice() : [];
+      while (row.length < 10) row.push('');
+      return {
+        displayName:     row[0],
+        productName:     row[1],
+        aiTypes:         row[2],
+        releaseType:     row[3],
+        releaseNotes:    row[4],
+        toolDescription: row[5],
+        policyLinks:     row[6],
+        policyNotes:     row[7],
+        notesResources:  row[8],
+        lastReviewed:    row[9]
+      };
+    });
+
+    console.log('Mapped rows length:', myData.length);
+    return myData;
+  }
+},
