@@ -2,20 +2,22 @@ $(document).ready(function(){
 
 
   // configure table columns
-  function createTableColumns(){
-
-    var tableColumns =   [
-        {'data': 'task', 'title': 'Recommendation/Task Name', 'className':'task', "defaultContent": "" },
-        {'data': 'theme', 'title': 'Theme', 'className':'theme', "defaultContent": "" },
-        {'data': 'assigned', 'title': 'Assigned To', 'className':'assigned', "defaultContent": ""},
-        {'data': 'priority', 'title': 'Priority', 'className':'priority', "defaultContent": ""},
-        {'data': 'targetDate', 'title': 'Target Date', 'className':'targetDate', "defaultContent": ""},
-        {'data': 'status', 'title': 'Status', 'className':'status', "defaultContent": ""},
-        {'data': 'sort', 'title': 'Sort', 'visible':false}
-
-       ];
+ function createTableColumns() {
+  var tableColumns = [
+    { 'data': 'displayName',      'title': 'Display Name',                       'className': 'displayName',      "defaultContent": "" },
+    { 'data': 'productName',      'title': 'Product Name (with Access Link)',    'className': 'productName',      "defaultContent": "" },
+    { 'data': 'aiTypes',          'title': 'AI Type(s)',                         'className': 'aiTypes',          "defaultContent": "" },
+    { 'data': 'releaseType',      'title': 'Release Type',                       'className': 'releaseType',      "defaultContent": "" },
+    { 'data': 'releaseNotes',     'title': 'Release Notes',                      'className': 'releaseNotes',     "defaultContent": "" },
+    { 'data': 'toolDescription',  'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription',  "defaultContent": "" },
+    { 'data': 'policyLinks',      'title': 'AI Policy & Documentation Links',    'className': 'policyLinks',      "defaultContent": "" },
+    { 'data': 'policyNotes',      'title': 'AI Policy Notes',                    'className': 'policyNotes',      "defaultContent": "" },
+    { 'data': 'notesResources',   'title': 'Notes & Resources',                  'className': 'notesResources',   "defaultContent": "" },
+    { 'data': 'lastReviewed',     'title': 'Last Reviewed (Date)',               'className': 'lastReviewed',     "defaultContent": "" }
+  ];
   return tableColumns;
 }
+
 function filterButtons() {
 $(".form-check-input")
 		.click(function(event){
@@ -62,18 +64,21 @@ if (window.location.href.indexOf("accountability-dashboard") > -1) {
    'dataSrc': function(json) {
      var myData = json['values']; //spreadsheet data lives in an array with the name values
      //rewrite data to an object with key-value pairs. This is also a chance to rename or ignore columns
-     myData= myData.map(function( n, i ) {
-         var myObject = {
-           task:n[0],
-           theme:n[1],
-           assigned:n[2],
-           priority:n[3],
-           targetDate:n[4],
-           status:n[5],
-           sort: n[6]
-         };
-         return myObject;
-     });
+       myData = myData.map(function(n, i) {
+    var myObject = {
+      displayName:     n[0],
+      productName:     n[1],
+      aiTypes:         n[2],
+      releaseType:     n[3],
+      releaseNotes:    n[4],
+      toolDescription: n[5],
+      policyLinks:     n[6],
+      policyNotes:     n[7],
+      notesResources:  n[8],
+      lastReviewed:    n[9]
+    };
+    return myObject;
+  });
      myData.splice(0,1); //remove the first row, which contains the orginal column headers
      return myData;
    }
