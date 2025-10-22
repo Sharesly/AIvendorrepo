@@ -59,7 +59,7 @@ if (window.location.href.indexOf("accountability-dashboard") > -1) {
    pageLength: 15,
     //get the data via AJAX from Google Sheets
     ajax: function (data, callback) {
-    fetch(urlCsv)
+    fetch(url)
       .then(r => r.text())
       .then(csvText => {
         const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
