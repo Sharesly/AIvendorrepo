@@ -7,13 +7,10 @@ $(document).ready(function () {
       { 'data': 'displayName', 'title': 'Display Name', 'className': 'displayName', "defaultContent": "" },
       { 'data': 'productName', 'title': 'Product Name (with Access Link)', 'className': 'productName', "defaultContent": "" },
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
-      { 'data': 'releaseType', 'title': 'Release Type', 'className': 'releaseType', "defaultContent": "" },
-      { 'data': 'releaseNotes', 'title': 'Release Notes', 'className': 'releaseNotes', "defaultContent": "" },
       { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
       { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
       { 'data': 'policyNotes', 'title': 'AI Policy Notes', 'className': 'policyNotes', "defaultContent": "" },
       { 'data': 'notesResources', 'title': 'Notes & Resources', 'className': 'notesResources', "defaultContent": "" },
-      { 'data': 'lastReviewed', 'title': 'Last Reviewed (Date)', 'className': 'lastReviewed', "defaultContent": "" }
     ];
     return tableColumns;
   }
