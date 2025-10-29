@@ -32,12 +32,6 @@ $(document).ready(function () {
           case 'AI Types':
             columnIndex = 2;
             break;
-          case 'Release Type':
-            columnIndex = 3;
-            break;
-          case 'Last Reviewed (Date)':
-            columnIndex = 9;
-            break;
           default:
             columnIndex = null;
         }
