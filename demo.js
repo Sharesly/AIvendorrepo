@@ -75,7 +75,6 @@ $(document).ready(function () {
             toolDescription: row['Tool Description (Vendor-Provided)'] || '',
             policyLinks: row['AI Policy & Documentation Links'] ? "<a target='blank' href='" + row['AI Policy & Documentation Links'] + "'>" + row['AI Policy & Documentation Links'] + "</a>": '',
             policyNotes: row['AI Policy Notes'] || '',
-            notesResources: row['Notes & Resources'] || '',
             lastReviewed: row['Last Reviewed (Date)'] || ''
           }));
 
