@@ -73,7 +73,7 @@ $(document).ready(function () {
             releaseType: row['Release Type'] || '',
             releaseNotes: row['Release Notes'] || '',
             toolDescription: row['Tool Description (Vendor-Provided)'] || '',
-            policyLinks: row['AI Policy & Documentation Links'] ? "<a href='" + row['AI Policy & Documentation Links'] + "'>" + row['AI Policy & Documentation Links'] + "</a>": '',
+            policyLinks: row['AI Policy & Documentation Links'] ? "<a target='blank' href='" + row['AI Policy & Documentation Links'] + "'>" + row['AI Policy & Documentation Links'] + "</a>": '',
             policyNotes: row['AI Policy Notes'] || '',
             notesResources: row['Notes & Resources'] || '',
             lastReviewed: row['Last Reviewed (Date)'] || ''
