@@ -71,15 +71,15 @@ $(document).ready(function () {
               var t = type.trim();
               var colorClass = '';
               switch (t) {
-                case 'Search Interpretation': colorClass = 'badge-search'; break;
-                case 'Recommender': colorClass = 'badge-recommender'; break;
-                case 'Generative': colorClass = 'badge-generative'; break;
-                case 'Hybrid': colorClass = 'badge-hybrid'; break;
-                case 'Summarization': colorClass = 'badge-summarization'; break;
-                case 'Classification': colorClass = 'badge-classification'; break;
-                default: colorClass = 'badge-default';
+                case 'Search Interpretation': colorClass = 'bg-primary'; break;
+                case 'Recommender': colorClass = 'bg-success'; break;
+                case 'Generative': colorClass = 'bg-secondary'; break;
+                case 'Hybrid': colorClass = 'bg-warning text-dark'; break;
+                case 'Summarization': colorClass = 'bg-info text-dark'; break;
+                case 'Classification': colorClass = 'bg-danger'; break;
+                default: colorClass = 'bg-light text-dark';
               }
-              return "<span class='badge badge-pill " + colorClass + "'>" + t + "</span>";
+              return "<span class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
             }).join('<br>') : '',
             releaseType: row['Release Type'] || '',
             toolDescription: row['Tool Description (Vendor-Provided)'] || '',
