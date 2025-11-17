@@ -1,3 +1,7 @@
+table.dataTable thead{
+  background-color:light grey;
+}
+
 table.dataTable td.MEDIUM {
   background-color:#6D9DC5;
     text-align : center;
