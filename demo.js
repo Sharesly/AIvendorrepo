@@ -82,7 +82,7 @@ $(document).ready(function () {
         });
     },
     //initial order by column 6, the default sort
-    'order': [[1, "asc"]],
+    'order': [[0, "asc"]],
     dom: 'Bfrtip',
     //use the column definition above to configure the columns
     'columns': createTableColumns(),
