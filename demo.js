@@ -4,7 +4,7 @@ $(document).ready(function () {
   // configure table columns
   function createTableColumns() {
     var tableColumns = [
-      { 'data': 'displayName', 'title': 'Display Name', 'className': 'displayName', "defaultContent": "" },
+      { 'data': 'displayName', 'title': 'Vendor', 'className': 'displayName', "defaultContent": "" },
       { 'data': 'productName', 'title': 'Product Name (with Access Link)', 'className': 'productName', "defaultContent": "" },
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
       { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         // Determine which column to search based on the radio button value
         switch (value) {
-          case 'Display Name':
+          case 'Vendor':
             columnIndex = 0;
             break;
           case 'Product Name (with Access Link)':
