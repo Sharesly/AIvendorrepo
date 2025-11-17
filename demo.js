@@ -79,8 +79,8 @@ $(document).ready(function () {
                 case 'Classification': colorClass = 'bg-danger'; break;
                 default: colorClass = 'bg-light text-dark';
               }
-              return "<span class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
-            }).join('<br><br>') : '',
+              return "<span style='margin-bottom: 2px' class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
+            }) : '',
             releaseType: row['Release Type'] || '',
             toolDescription: row['Tool Description (Vendor-Provided)'] || '',
             policyLinks: row['AI Policy & Documentation Links'] ? "<a target='blank' href='" + row['AI Policy & Documentation Links'] + "'>" + row['AI Policy & Documentation Links'] + "</a>": '',
