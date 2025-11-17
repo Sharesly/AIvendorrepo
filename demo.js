@@ -5,7 +5,7 @@ $(document).ready(function () {
   function createTableColumns() {
     var tableColumns = [
       { 'data': 'displayName', 'title': 'Vendor', 'className': 'displayName', "defaultContent": "" },
-      { 'data': 'productName', 'title': 'Product Name (with Access Link)', 'className': 'productName', "defaultContent": "" },
+      { 'data': 'productName', 'title': 'AI Tool', 'className': 'productName', "defaultContent": "" },
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
       { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
       { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
@@ -24,7 +24,7 @@ $(document).ready(function () {
           case 'Vendor':
             columnIndex = 0;
             break;
-          case 'Product Name (with Access Link)':
+          case 'AI Tool':
             columnIndex = 1;
             break;
           case 'AI Types':
