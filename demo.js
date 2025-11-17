@@ -67,7 +67,7 @@ $(document).ready(function () {
           const rows = (parsed.data || []).map(row => ({
             displayName: row['Display Name'] || '',
             productName: row['Product Name (with Access Link)'] || '',
-            aiTypes: row['AI Type(s)'] || '',
+            aiTypes: row['AI Type(s)'] ? "<span class='badge badge-pill badge-primary'> + row['AI Type(s)'] + "</span>" : '',
             releaseType: row['Release Type'] || '',
             toolDescription: row['Tool Description (Vendor-Provided)'] || '',
             policyLinks: row['AI Policy & Documentation Links'] ? "<a target='blank' href='" + row['AI Policy & Documentation Links'] + "'>" + row['AI Policy & Documentation Links'] + "</a>": '',
