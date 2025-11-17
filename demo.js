@@ -67,7 +67,20 @@ $(document).ready(function () {
           const rows = (parsed.data || []).map(row => ({
             displayName: row['Display Name'] || '',
             productName: row['Product Name (with Access Link)'] || '',
-            aiTypes: row['AI Type(s)'] ? "<span class='badge badge-pill badge-primary'>" + row['AI Type(s)'] + "</span>" : '',
+            aiTypes: row['AI Type(s)'] ? row['AI Type(s)'].split(',').map(function(type) {
+              var t = type.trim();
+              var colorClass = '';
+              switch (t) {
+                case 'Search Interpretation': colorClass = 'badge-search'; break;
+                case 'Recommender': colorClass = 'badge-recommender'; break;
+                case 'Generative': colorClass = 'badge-generative'; break;
+                case 'Hybrid': colorClass = 'badge-hybrid'; break;
+                case 'Summarization': colorClass = 'badge-summarization'; break;
+                case 'Classification': colorClass = 'badge-classification'; break;
+                default: colorClass = 'badge-default';
+              }
+              return "<span class='badge badge-pill " + colorClass + "'>" + t + "</span>";
+            }).join('<br>') : '',
             releaseType: row['Release Type'] || '',
             toolDescription: row['Tool Description (Vendor-Provided)'] || '',
             policyLinks: row['AI Policy & Documentation Links'] ? "<a target='blank' href='" + row['AI Policy & Documentation Links'] + "'>" + row['AI Policy & Documentation Links'] + "</a>": '',
