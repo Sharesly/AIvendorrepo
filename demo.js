@@ -9,8 +9,6 @@ $(document).ready(function () {
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
       { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
       { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
-      { 'data': 'policyNotes', 'title': 'AI Policy Notes', 'className': 'policyNotes', "defaultContent": "" },
-      { 'data': 'notesResources', 'title': 'Notes & Resources', 'className': 'notesResources', "defaultContent": "" },
     ];
     return tableColumns;
   }
