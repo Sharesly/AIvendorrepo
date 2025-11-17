@@ -80,7 +80,7 @@ $(document).ready(function () {
                 default: colorClass = 'bg-light text-dark';
               }
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
-            }) : '',
+            }).join('<br>') : '',
             releaseType: row['Release Type'] || '',
             toolDescription: row['Tool Description (Vendor-Provided)'] || '',
             policyLinks: row['AI Policy & Documentation Links'] ? "<a target='blank' href='" + row['AI Policy & Documentation Links'] + "'>" + row['AI Policy & Documentation Links'] + "</a>": '',
