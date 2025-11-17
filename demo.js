@@ -9,8 +9,6 @@ $(document).ready(function () {
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
       { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
       { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
-      { 'data': 'policyNotes', 'title': 'AI Policy Notes', 'className': 'policyNotes', "defaultContent": "" },
-      { 'data': 'notesResources', 'title': 'Notes & Resources', 'className': 'notesResources', "defaultContent": "" },
     ];
     return tableColumns;
   }
@@ -71,10 +69,8 @@ $(document).ready(function () {
             productName: row['Product Name (with Access Link)'] || '',
             aiTypes: row['AI Type(s)'] || '',
             releaseType: row['Release Type'] || '',
-            releaseNotes: row['Release Notes'] || '',
             toolDescription: row['Tool Description (Vendor-Provided)'] || '',
             policyLinks: row['AI Policy & Documentation Links'] ? "<a target='blank' href='" + row['AI Policy & Documentation Links'] + "'>" + row['AI Policy & Documentation Links'] + "</a>": '',
-            policyNotes: row['AI Policy Notes'] || '',
             lastReviewed: row['Last Reviewed (Date)'] || ''
           }));
 
