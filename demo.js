@@ -8,7 +8,7 @@ $(document).ready(function () {
       { 'data': 'productName', 'title': 'AI Tool', 'className': 'productName', "defaultContent": "" },
       { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
-  
+      
       { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
       { 'data': 'ethicsCategories', 'title': 'AI Ethics Policy Categories', 'className': 'ethicsCategories', "defaultContent": "" },
     ];
@@ -68,7 +68,31 @@ $(document).ready(function () {
           // Map CSV headers -> your field names used in createTableColumns()
           const rows = (parsed.data || []).map(row => ({
             displayName: row['Display Name'] || '',
-            productName: row['Product Name (with Access Link)'] || '',
+            productName: (function(){
+              var raw = row['Product Name (with Access Link)'] || '';
+              if(!raw) return '';
+              var lines = raw.split(/\r?\n/).map(function(l){ return l.trim(); }).filter(function(l){ return l.length > 0; });
+              var items = [];
+              for(var i = 0; i < lines.length; i += 2) {
+                var name = lines[i];
+                var url = lines[i+1] || '';
+                // If the pair is reversed (first is URL), swap
+                if(url && !/^https?:\/\//i.test(url) && /^https?:\/\//i.test(name)) {
+                  url = name;
+                  name = lines[i+1] || url;
+                }
+                if(url) {
+                  items.push("<a target='_blank' rel='noopener noreferrer' href='" + url + "'>" + name + "</a>");
+                } else {
+                  if(/^https?:\/\//i.test(name)) {
+                    items.push("<a target='_blank' rel='noopener noreferrer' href='" + name + "'>" + name + "</a>");
+                  } else {
+                    items.push(name);
+                  }
+                }
+              }
+              return items.join('<br><br>');
+            })(),
             aiTypes: row['AI Type(s)'] ? row['AI Type(s)'].split(',').map(function(type) {
               var t = type.trim();
               var colorClass = '';
@@ -154,5 +178,3 @@ $(document).ready(function () {
 
 });
 
-
-});
