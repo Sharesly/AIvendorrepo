@@ -7,6 +7,7 @@ $(document).ready(function () {
       { 'data': 'displayName', 'title': 'Vendor', 'className': 'displayName', "defaultContent": "" },
       { 'data': 'productName', 'title': 'AI Tool', 'className': 'productName', "defaultContent": "" },
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
+      { 'data': 'ethicsCategories', 'title': 'AI Ethics Policy Categories', 'className': 'ethicsCategories', "defaultContent": "" },
       { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
       { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
     ];
@@ -80,6 +81,16 @@ $(document).ready(function () {
                 default: colorClass = 'bg-light text-dark';
               }
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
+            }).join('<br>') : '',
+            ethicsCategories: row['AI Ethics Policy Categories'] ? row['AI Ethics Policy Categories'].split(',').map(function(cat){
+              var c = cat.trim();
+              var cls = '';
+              // match exact known values or use includes for flexibility
+              if(c === 'Ethics') cls = 'bg-primary';
+              else if(c === 'Environment') cls = 'bg-success';
+              else if(c === 'Privacy / Personal Data / Training Data') cls = 'bg-light text-dark';
+              else cls = 'bg-secondary';
+              return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
             }).join('<br>') : '',
             releaseType: row['Release Type'] || '',
             toolDescription: row['Tool Description (Vendor-Provided)'] || '',
