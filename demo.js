@@ -58,6 +58,10 @@ $(document).ready(function () {
   var oTable = $('#data-table-container').DataTable({
     buttons: [],
     pageLength: 15,
+    // ensure DataTables allocates a wider width for the Tool Description column (index 2)
+    columnDefs: [
+      { targets: 2, width: '420px' }
+    ],
     //get the data via AJAX from Google Sheets
     ajax: function (data, callback) {
       fetch(url)
@@ -177,4 +181,3 @@ $(document).ready(function () {
   });
 
 });
-
