@@ -7,9 +7,9 @@ $(document).ready(function () {
       { 'data': 'displayName', 'title': 'Vendor', 'className': 'displayName', "defaultContent": "" },
       { 'data': 'productName', 'title': 'AI Tool', 'className': 'productName', "defaultContent": "" },
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
-      { 'data': 'ethicsCategories', 'title': 'AI Ethics Policy Categories', 'className': 'ethicsCategories', "defaultContent": "" },
       { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
       { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
+      { 'data': 'ethicsCategories', 'title': 'AI Ethics Policy Categories', 'className': 'ethicsCategories', "defaultContent": "" },
     ];
     return tableColumns;
   }
