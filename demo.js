@@ -4,13 +4,13 @@ $(document).ready(function () {
   // configure table columns
   function createTableColumns() {
     var tableColumns = [
-      { 'data': 'displayName', 'title': 'Vendor', 'className': 'displayName', "defaultContent": "" },
-      { 'data': 'productName', 'title': 'AI Tool', 'className': 'productName', "defaultContent": "" },
-      { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
-      { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
+      { 'data': 'displayName', 'title': 'Vendor', 'className': 'displayName', "defaultContent": "", "width": "14%" },
+      { 'data': 'productName', 'title': 'AI Tool', 'className': 'productName', "defaultContent": "", "width": "14%" },
+      { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "", "width": "30%" },
+      { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "", "width": "14%" },
       
-      { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
-      { 'data': 'ethicsCategories', 'title': 'AI Ethics Policy Categories', 'className': 'ethicsCategories', "defaultContent": "" },
+      { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "", "width": "14%" },
+      { 'data': 'ethicsCategories', 'title': 'AI Ethics Policy Categories', 'className': 'ethicsCategories', "defaultContent": "", "width": "14%" },
     ];
     return tableColumns;
   }
