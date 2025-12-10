@@ -100,4 +100,34 @@ table.dataTable th.toolDescription {
     min-width: 0;
   }
 }
+#googleSheetsDataTable th:nth-child(1),
+#googleSheetsDataTable td:nth-child(1) {
+    width: 10%;   
+}
+#googleSheetsDataTable th:nth-child(2),
+#googleSheetsDataTable td:nth-child(2) {
+    width: 10%;
+}
+#googleSheetsDataTable th:nth-child(3),
+#googleSheetsDataTable td:nth-child(3) {
+    width: 10%;
+    background:blue;
+}
+#googleSheetsDataTable th:nth-child(4),
+#googleSheetsDataTable td:nth-child(4) {
+    width: 10%;
+}
+#googleSheetsDataTable th:nth-child(5),
+#googleSheetsDataTable td:nth-child(5) {
+    width: 10%;
+}
+#googleSheetsDataTable th:nth-child(6),
+#googleSheetsDataTable td:nth-child(6) {
+    width: 10%;
+}
+#googleSheetsDataTable th:nth-child(7),
+#googleSheetsDataTable td:nth-child(7) {
+    width: 10%;
+}
 
+.badge {white-space: wrap;}    
