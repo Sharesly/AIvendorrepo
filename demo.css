@@ -81,7 +81,7 @@ table.dataTable td.COMPLETED {
 }
 
 /* Make tool description column wider and allow word-wrap so rows don't become too tall */
-table.dataTable td.toolDescription,
+/*table.dataTable td.toolDescription,
 table.dataTable th.toolDescription {
   /* set a wider fixed width so table column is wider and text wraps horizontally */
   min-width: 420px;
@@ -89,7 +89,7 @@ table.dataTable th.toolDescription {
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: anywhere;
-}
+}*/
 
 /* Small screens: reduce width so layout remains responsive */
 @media (max-width: 768px) {
