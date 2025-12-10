@@ -56,11 +56,12 @@ $(document).ready(function () {
   }
   //this function creates the datatable and selects configuration options
   var oTable = $('#data-table-container').DataTable({
+    responsive: true,
     buttons: [],
     pageLength: 100,
     // ensure DataTables allocates a wider width for the Tool Description column (index 2)
     columnDefs: [
-      { targets: 2, width: '420px' }
+      { targets: 2, width: '40%' }
     ],
     //get the data via AJAX from Google Sheets
     ajax: function (data, callback) {
