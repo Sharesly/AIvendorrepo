@@ -56,7 +56,7 @@ $(document).ready(function () {
   }
   //this function creates the datatable and selects configuration options
   var oTable = $('#data-table-container').DataTable({
-    responsive: true,
+    autoWidth: false,
     buttons: [],
     pageLength: 100,
     // ensure DataTables allocates a wider width for the Tool Description column (index 2)
