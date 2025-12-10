@@ -126,7 +126,7 @@ add these css, you could adjust the width accordingly
 }
 #googleSheetsDataTable th:nth-child(5),
 #googleSheetsDataTable td:nth-child(5) {
-    width: 10%;
+    width: 5%;
 }
 #googleSheetsDataTable th:nth-child(6),
 #googleSheetsDataTable td:nth-child(6) {
