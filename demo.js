@@ -61,7 +61,7 @@ $(document).ready(function () {
     pageLength: 100,
     // ensure DataTables allocates a wider width for the Tool Description column (index 2)
     columnDefs: [
-      { targets: 2, width: '40%' }
+      { targets: 2, width: '420px' }
     ],
     //get the data via AJAX from Google Sheets
     ajax: function (data, callback) {
