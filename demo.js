@@ -6,10 +6,10 @@ $(document).ready(function () {
     var tableColumns = [
       { 'data': 'displayName', 'title': 'Vendor', 'className': 'displayName', "defaultContent": "", "width": "14%" },
       { 'data': 'productName', 'title': 'AI Tool', 'className': 'productName', "defaultContent": "", "width": "14%" },
-      { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "", "width": "30%" },
+      { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "", "width": "50%" },
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "", "width": "14%" },
       
-      { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "", "width": "14%" },
+      { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "", "width": "2%" },
       { 'data': 'ethicsCategories', 'title': 'AI Ethics Policy Categories', 'className': 'ethicsCategories', "defaultContent": "", "width": "14%" },
     ];
     return tableColumns;
