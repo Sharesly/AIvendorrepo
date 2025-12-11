@@ -85,7 +85,8 @@ table.dataTable td.COMPLETED {
   overflow-wrap: anywhere;
 }
 
-#data-table-container td:nth-child(6) {
+#data-table-container td:nth-child(6) .badge {
+  white-space: normal;
   word-break: break-word;
   overflow-wrap: anywhere;
 }
