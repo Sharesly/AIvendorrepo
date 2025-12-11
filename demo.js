@@ -62,7 +62,12 @@ $(document).ready(function () {
     pageLength: 100,
     // ensure DataTables allocates a wider width for the Tool Description column (index 2)
     columnDefs: [
-      { targets: 2, width: '40%' }
+      { targets: 0, width: '12%' }, // Vendor
+      { targets: 1, width: '18%' }, // AI Tool
+      { targets: 2, width: '40%' }, // Tool Description
+      { targets: 3, width: '10%' }, // AI Types
+      { targets: 4, width: '10%' }, // Policy Links
+      { targets: 5, width: '10%' }  // Ethics Categories
     ],
     //get the data via AJAX from Google Sheets
     ajax: function (data, callback) {
