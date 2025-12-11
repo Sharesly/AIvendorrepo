@@ -80,8 +80,12 @@ table.dataTable td.COMPLETED {
   padding-left: 15px;
 }
 
-#data-table-container td:nth-child(5),
-#data-table-container th:nth-child(5) {
+#data-table-container td:nth-child(5) {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+#data-table-container td:nth-child(6) {
   word-break: break-word;
   overflow-wrap: anywhere;
 }
