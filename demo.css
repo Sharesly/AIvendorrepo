@@ -80,26 +80,6 @@ table.dataTable td.COMPLETED {
   padding-left: 15px;
 }
 
-/* Make tool description column wider and allow word-wrap so rows don't become too tall */
-/*table.dataTable td.toolDescription,
-table.dataTable th.toolDescription {
-  /* set a wider fixed width so table column is wider and text wraps horizontally */
-  min-width: 420px;
-  width: 420px;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: anywhere;
-}*/
-
-/* Small screens: reduce width so layout remains responsive */
-/*@media (max-width: 768px) {
-  table.dataTable td.toolDescription,
-  table.dataTable th.toolDescription {
-    /* allow the column to shrink on small screens */
-    width: auto;
-    min-width: 0;
-  }
-}*/
 #data-table-container td:nth-child(5),
 #data-table-container th:nth-child(5) {
   word-break: break-word;
