@@ -187,4 +187,8 @@ $(document).ready(function () {
 
   });
 
+  $(window).on('load', function () {
+    oTable.columns.adjust().responsive.recalc();
+  });
+
 });
