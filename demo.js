@@ -124,7 +124,7 @@ $(document).ready(function () {
               // match exact known values or use includes for flexibility
               if(c === 'Ethics') cls = 'bg-primary';
               else if(c === 'Environment') cls = 'bg-success';
-              else if(c === 'Privacy / Personal Data / Training Data') cls = 'bg-light text-dark';
+              else if(c === 'Privacy & Data Practices') cls = 'bg-info';
               else cls = 'bg-secondary';
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
             }).join('<br>') : '',
