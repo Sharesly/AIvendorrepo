@@ -10,7 +10,7 @@ $(document).ready(function () {
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
       { 'data': 'thirdParty', 'title': 'Third Party AI Usage', 'className': 'thirdParty', "defaultContent": "" },
       { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
-      { 'data': 'ethicsCategories', 'title': 'Responsible AI Commitments Identified:', 'className': 'ResponsibleAICategories', "defaultContent": "" },
+      { 'data': 'ethicsCategories', 'title': 'Responsible AI Commitments Identified', 'className': 'ResponsibleAICategories', "defaultContent": "" },
       { 'data': 'userDatarights', 'title': 'User Data & Content Rights', 'className': 'UserDataRights', "defaultContent": "" },
       { 'data': 'administrativeControl', 'title': 'Administrative Control', 'className': 'administrativeControl', "defaultContent": "" },
       
