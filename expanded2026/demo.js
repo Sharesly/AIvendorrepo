@@ -67,7 +67,7 @@ $(document).ready(function () {
     columnDefs: [
       { targets: 0, width: '12%' }, // Vendor
       { targets: 1, width: '18%' }, // AI Tool
-      { targets: 2, width: '40%' }, // Tool Description
+  
       { targets: 3, width: '10%' }, // AI Types
       { targets: 4, width: '10%' }, // Policy Links
       { targets: 5, width: '10%' }  // Ethics Categories
