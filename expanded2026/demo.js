@@ -161,7 +161,9 @@ $(document).ready(function () {
               }
               return items.join('<br><br>');
             })(),
-            lastReviewed: row['Last Reviewed (Date)'] || ''
+            ethicsCategories: row['Responsible AI Commitments Identified'] || '',
+            userDatarights: row['User Data & Content Rights'] || '',
+            administrativeControl: row['Administrative Control'] || '',
           }));
 
           callback({ data: rows });
