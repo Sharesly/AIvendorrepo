@@ -1,0 +1,92 @@
+table.dataTable thead{
+  background-color: lightgrey;
+}
+
+table.dataTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+table.dataTable tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+table.dataTable td.MEDIUM {
+  background-color:#6D9DC5;
+    text-align : center;
+    font-weight: bold;
+}
+
+table.dataTable td.HIGH {
+  background-color:#3066BE;
+  color:white;
+  text-align : center;
+  font-weight: bold;
+}
+
+table.dataTable td.LOW {
+  background-color:#AEECEF;
+  color:black;
+  text-align : center;
+  font-weight: bold;
+}
+
+table.dataTable td.NOT {
+  background-color:#3066BE;
+  color: white;
+  text-align : center;
+  font-weight: bold;
+}
+
+
+table.dataTable td.COMPLETED {
+  background-color:white;
+}
+
+table.dataTable img.table-icon {
+  height:60px;
+  margin-top:30px;
+}
+
+table.dataTable td.IN-PLANNING {
+  background-color:#E1D89F;
+  color:black; 
+  text-align : center;
+  font-weight: bold;
+}
+
+table.dataTable td.CAMPUS {
+  background-color:black;
+  color:white;
+  text-align : center;
+  font-weight: bold;
+}
+
+table.dataTable td.IN-PROGRESS {
+  background-color:#6D9DC5;
+  color:black;
+  text-align : center;
+  font-weight: bold;
+}
+
+table.dataTable td.COMPLETED {
+  background-color:#00734B;
+  color:white;
+  text-align : center;
+  font-weight: bold;
+}
+
+.buttons {
+  float: right;
+  padding-left: 15px;
+}
+
+#data-table-container td:nth-child(5) {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+#data-table-container td:nth-child(6) .badge {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
