@@ -121,7 +121,7 @@ $(document).ready(function () {
               }
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
             }).join('<br>') : '',
-            ethicsCategories: row['AI Ethics Policy Categories'] ? row['AI Ethics Policy Categories'].split(',').map(function(cat){
+            ethicsCategories: row['Responsible AI Commitments Identified'] ? row['Responsible AI Commitments Identified'].split(',').map(function(cat){
               var c = cat.trim();
               var cls = '';
               // match exact known values or use includes for flexibility
@@ -159,7 +159,6 @@ $(document).ready(function () {
               }
               return items.join('<br><br>');
             })(),
-            ethicsCategories: row['Responsible AI Commitments Identified'] || '',
             userDatarights: row['User Data and Content Rights'] || '',
             administrativeControl: row['Administrative Control'] || '',
             thirdParty: row['Third Party AIUsage'] || '',
