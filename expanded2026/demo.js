@@ -162,7 +162,7 @@ $(document).ready(function () {
               return items.join('<br><br>');
             })(),
             ethicsCategories: row['Responsible AI Commitments Identified'] || '',
-            userDatarights: row['User Data & Content Rights'] || '',
+            userDatarights: row['User Data and Content Rights'] || '',
             administrativeControl: row['Administrative Control'] || '',
           }));
 
