@@ -6,7 +6,6 @@ $(document).ready(function () {
     var tableColumns = [
       { 'data': 'displayName', 'title': 'Vendor', 'className': 'displayName', "defaultContent": "" },
       { 'data': 'productName', 'title': 'AI Tool', 'className': 'productName', "defaultContent": "" },
-      { 'data': 'toolDescription', 'title': 'Tool Description (Vendor-Provided)', 'className': 'toolDescription', "defaultContent": "" },
       { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
       { 'data': 'thirdParty', 'title': 'Third Party AI Usage', 'className': 'thirdParty', "defaultContent": "" },
       { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
@@ -133,7 +132,6 @@ $(document).ready(function () {
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
             }).join('<br>') : '',
             releaseType: row['Release Type'] || '',
-            toolDescription: row['Tool Description (Vendor-Provided)'] || '',
             policyLinks: (function(){
               var raw = row['AI Policy & Documentation Links'] || '';
               if(!raw) return '';
@@ -164,6 +162,7 @@ $(document).ready(function () {
             ethicsCategories: row['Responsible AI Commitments Identified'] || '',
             userDatarights: row['User Data and Content Rights'] || '',
             administrativeControl: row['Administrative Control'] || '',
+            thirdParty: row['Third Party AIUsage'] || '',
           }));
 
           callback({ data: rows });
