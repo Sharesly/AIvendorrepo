@@ -161,7 +161,7 @@ $(document).ready(function () {
             })(),
             userDatarights: row['User Data and Content Rights'] || '',
             administrativeControl: row['Administrative Control'] || '',
-            thirdParty: row['Third Party AIUsage'] || '',
+            thirdParty: row['Third Party AI Usage'] || '',
           }));
 
           callback({ data: rows });
