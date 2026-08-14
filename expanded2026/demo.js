@@ -7,6 +7,7 @@ $(document).ready(function () {
       { 'data': 'displayName', 'title': 'Database Vendor / Publisher', 'className': 'displayName', "defaultContent": "" },
       { 'data': 'productName', 'title': 'AI Tool Name (with Access Link)', 'className': 'productName', "defaultContent": "" },
       { 'data': 'aiTypes', 'title': 'AI Functionality', 'className': 'aiTypes', "defaultContent": "" },
+      { 'data': 'aiPolicyAndDocumentationLinks', 'title': 'AI Policy & Documentation Links', 'className': 'aiPolicyAndDocumentation', "defaultContent": "" },
       { 'data': 'thirdPartyAIUsage', 'title': 'Third Party AI Usage Disclosure', 'className': 'thirdPartyAIUsage', "defaultContent": "" },
       { 'data': 'thirdPartyAIProviders', 'title': 'Third Party AI Provider(s)', 'className': 'thirdPartyAIProviders', "defaultContent": "" },
       { 'data': 'useResourceWithoutAI', 'title': 'Can I use this resource without using AI? (Beta)', 'className': 'reuseResourceWithoutAI', "defaultContent": "" },
@@ -119,6 +120,31 @@ $(document).ready(function () {
               }
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
             }).join('<br>') : '',
+            aiPolicyAndDocumentation: (function(){
+              var raw = row['AI Policy & Documentation Links'] || '';
+              if(!raw) return '';
+              var lines = raw.split(/\r?\n/).map(function(l){ return l.trim(); }).filter(function(l){ return l.length > 0; });
+              var items = [];
+              for(var i = 0; i < lines.length; i += 2) {
+                var name = lines[i];
+                var url = lines[i+1] || '';
+                // If the pair is reversed (first is URL), swap
+                if(url && !/^https?:\/\//i.test(url) && /^https?:\/\//i.test(name)) {
+                  url = name;
+                  name = lines[i+1] || url;
+                }
+                if(url) {
+                  items.push("<a target='_blank' rel='noopener noreferrer' href='" + url + "'>" + name + "</a>");
+                } else {
+                  if(/^https?:\/\//i.test(name)) {
+                    items.push("<a target='_blank' rel='noopener noreferrer' href='" + name + "'>" + name + "</a>");
+                  } else {
+                    items.push(name);
+                  }
+                }
+              }
+              return items.join('<br><br>');
+            })(),
             thirdPartyAIUsage: (function () {
               var value = row['Third Party AI Usage Disclosure'] || '';
               var c = value.trim();
