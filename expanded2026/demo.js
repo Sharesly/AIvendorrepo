@@ -154,9 +154,9 @@ $(document).ready(function () {
               if (!c) return '';
 
               var cls = '';
-              if (c === 'Yes') cls = 'bg-primary';
+              if (c === 'Yes') cls = 'bg-success';
               else if (c === 'Unclear') cls = 'bg-danger';
-              else if (c === 'Not Used') cls = 'bg-success';
+              else if (c === 'Not Used') cls = 'bg-primary';
               else if (c === 'No Data Found') cls = 'bg-info text-dark';
               else if (c === 'Not Applicable') cls = 'bg-warning text-dark';
               else cls = 'bg-secondary';
@@ -170,8 +170,8 @@ $(document).ready(function () {
               if (!c) return '';
 
               var cls = '';
-              if (c === 'Yes') cls = 'bg-primary';
-              else if (c === 'No Data Found') cls = 'bg-success';
+              if (c === 'Yes') cls = 'bg-success';
+              else if (c === 'No Data Found') cls = 'bg-primary';
               else if (c === 'No') cls = 'bg-danger';
               else if (c === 'Partial') cls = 'bg-info text-dark';
               else if (c === 'Unclear') cls = 'bg-warning text-dark';
