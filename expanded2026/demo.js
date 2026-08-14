@@ -116,6 +116,9 @@ $(document).ready(function () {
                 case 'Hybrid': colorClass = 'bg-warning text-dark'; break;
                 case 'Summarization': colorClass = 'bg-info text-dark'; break;
                 case 'Classification': colorClass = 'bg-danger'; break;
+                case 'Predictive': colorClass = 'bg-light text-dark'; break;
+                case 'Hybrid': colorClass = 'bg-light text-dark'; break;
+                case 'Accessibility': colorClass = 'bg-light text-dark'; break;
                 default: colorClass = 'bg-light text-dark';
               }
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
@@ -152,8 +155,8 @@ $(document).ready(function () {
 
               var cls = '';
               if (c === 'Yes') cls = 'bg-primary';
-              else if (c === 'Unclear') cls = 'bg-success';
-              else if (c === 'Not Used') cls = 'bg-danger';
+              else if (c === 'Unclear') cls = 'bg-danger';
+              else if (c === 'Not Used') cls = 'bg-success';
               else if (c === 'No Data Found') cls = 'bg-info text-dark';
               else if (c === 'Not Applicable') cls = 'bg-warning text-dark';
               else cls = 'bg-secondary';
@@ -176,7 +179,21 @@ $(document).ready(function () {
 
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
             })(),
-            modelTrainOnData: row['Does the model train on my data?'] || '',
+            modelTrainOnData: (function () {
+              var value = row['Does the model train on my data?'] || '';
+              var c = value.trim();
+              if (!c) return '';
+
+              var cls = '';
+              if (c === 'Yes') cls = 'bg-primary';
+              else if (c === 'No Data Found') cls = 'bg-success';
+              else if (c === 'No') cls = 'bg-danger';
+              else if (c === 'Partial') cls = 'bg-info text-dark';
+              else if (c === 'Unclear') cls = 'bg-warning text-dark';
+              else cls = 'bg-secondary';
+
+              return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
+            })(),
             dataRetained: (function () {
               var value = row['Is my data retained?'] || '';
               var c = value.trim();
