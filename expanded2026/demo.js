@@ -51,7 +51,7 @@ $(document).ready(function () {
 
   // create the table container and object
   $('#googleSheetsDataTable').html('<table cellpadding="0" cellspacing="0" border="0" class="display table" id="data-table-container" style="width:100%"></table>');
-  var url = 'https://docs.google.com/spreadsheets/d/1aauwddvDpq-04FjSxByev9ty086PbIQBLC953Do52II/gviz/tq?tqx=out:csv&sheet=Vendors';
+  var url = 'https://docs.google.com/spreadsheets/d/1uJA6Y0Uh_5bny2IoKXR4PuIuWsD6PF5S/gviz/tq?tqx=out:csv&sheet=Vendors';
   if (window.location.href.indexOf("accountability-dashboard") > -1) {
     url = 'https://sheets.googleapis.com/v4/spreadsheets/1A_o9Nk-COZl21FqTKgcwhS_EU1wo3reEMvufj3fovWc/values/A:G?key=AIzaSyCmqnBijhOsTPfft3WE6rYAfQ1tERXPoAg';
   }
