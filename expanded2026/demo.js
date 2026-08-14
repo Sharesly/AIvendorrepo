@@ -95,43 +95,53 @@ $(document).ready(function () {
               }
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
             }).join('<br>') : '',
-            thirdPartyAIUsage: row['Third Party AI Usage Disclosure'] ? row['Third Party AI Usage Disclosure'].map(function(cat){
-              var c = cat.trim();
+            thirdPartyAIUsage: (function () {
+              var value = row['Third Party AI Usage Disclosure'] || '';
+              var c = value.trim();
+              if (!c) return '';
+
               var cls = '';
-              if(c === 'Yes') cls = 'bg-primary';
-              else if(c === 'Unclear') cls = 'bg-success';
-              else if(c === 'Not Used') cls = 'bg-danger';
-              else if(c === 'No Data Found') cls = 'bg-info text-dark';
-              else if(c === 'Not Applicable') cls = 'bg-warning text-dark';
+              if (c === 'Yes') cls = 'bg-primary';
+              else if (c === 'Unclear') cls = 'bg-success';
+              else if (c === 'Not Used') cls = 'bg-danger';
+              else if (c === 'No Data Found') cls = 'bg-info text-dark';
+              else if (c === 'Not Applicable') cls = 'bg-warning text-dark';
               else cls = 'bg-secondary';
+
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
-            }).join('<br>') : '',
+            })(),
             thirdPartyAIProviders: row['Third Party AI Provider(s)'] || '',
-            useResourceWithoutAI: row['Can I use this resource without using AI? (Beta)'] ? row['Can I use this resource without using AI? (Beta)'].map(function(cat){
-              var c = cat.trim();
+            useResourceWithoutAI: (function () {
+              var value = row['Can I use this resource without using AI? (Beta)'] || '';
+              var c = value.trim();
+              if (!c) return '';
+
               var cls = '';
-              // match exact known values or use includes for flexibility
-              if(c === 'Yes') cls = 'bg-primary';
-              else if(c === 'No Data Found') cls = 'bg-success';
-              else if(c === 'No') cls = 'bg-danger';
-              else if(c === 'Partial') cls = 'bg-info text-dark';
-              else if(c === 'Unclear') cls = 'bg-warning text-dark';
+              if (c === 'Yes') cls = 'bg-primary';
+              else if (c === 'No Data Found') cls = 'bg-success';
+              else if (c === 'No') cls = 'bg-danger';
+              else if (c === 'Partial') cls = 'bg-info text-dark';
+              else if (c === 'Unclear') cls = 'bg-warning text-dark';
               else cls = 'bg-secondary';
+
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
-            }).join('<br>') : '',
+            })(),
             modelTrainOnData: row['Does the model train on my data?'] || '',
-            dataRetained: row['Is my data retained?'] ? row['Is my data retained?'].map(function(cat){
-              var c = cat.trim();
+            dataRetained: (function () {
+              var value = row['Is my data retained?'] || '';
+              var c = value.trim();
+              if (!c) return '';
+
               var cls = '';
-              // match exact known values or use includes for flexibility
-              if(c === 'Yes') cls = 'bg-primary';
-              else if(c === 'No Data Found') cls = 'bg-success';
-              else if(c === 'No') cls = 'bg-danger';
-              else if(c === 'Partial') cls = 'bg-info text-dark';
-              else if(c === 'Unclear') cls = 'bg-warning text-dark';
+              if (c === 'Yes') cls = 'bg-primary';
+              else if (c === 'No Data Found') cls = 'bg-success';
+              else if (c === 'No') cls = 'bg-danger';
+              else if (c === 'Partial') cls = 'bg-info text-dark';
+              else if (c === 'Unclear') cls = 'bg-warning text-dark';
               else cls = 'bg-secondary';
+
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
-            }).join('<br>') : '',
+            })(),
           }));
 
           callback({ data: rows });
