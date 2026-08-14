@@ -4,8 +4,8 @@ $(document).ready(function () {
   // configure table columns
   function createTableColumns() {
     var tableColumns = [
-      { 'data': 'displayName', 'title': 'Vendor & Publisher', 'className': 'displayName', "defaultContent": "" },
-      { 'data': 'productName', 'title': 'Tool', 'className': 'productName', "defaultContent": "" },
+      { 'data': 'displayName', 'title': 'Database Vendor / Publisher', 'className': 'displayName', "defaultContent": "" },
+      { 'data': 'productName', 'title': 'AI Tool Name (with Access Link)', 'className': 'productName', "defaultContent": "" },
       { 'data': 'aiTypes', 'title': 'AI Functionality', 'className': 'aiTypes', "defaultContent": "" },
       { 'data': 'thirdPartyAIUsage', 'title': 'Third Party AI Usage Disclosure', 'className': 'thirdPartyAIUsage', "defaultContent": "" },
       { 'data': 'thirdPartyAIProviders', 'title': 'Third Party AI Provider(s)', 'className': 'thirdPartyAIProviders', "defaultContent": "" },
@@ -79,9 +79,9 @@ $(document).ready(function () {
 
           // Map CSV headers -> your field names used in createTableColumns()
           const rows = (parsed.data || []).map(row => ({
-            displayName: row['Display Name'] || '',
-            productName: row['Tool'] || '',
-            aiTypes: row['AI Type(s)'] ? row['AI Type(s)'].split(';').map(function(type) {
+            displayName: row['Database Vendor / Publisher'] || '',
+            productName: row['AI Tool Name (with Access Link)'] || '',
+            aiTypes: row['AI Functionality'] ? row['AI Functionality'].split(',').map(function(type) {
               var t = type.trim();
               var colorClass = '';
               switch (t) {
