@@ -4,16 +4,14 @@ $(document).ready(function () {
   // configure table columns
   function createTableColumns() {
     var tableColumns = [
-      { 'data': 'displayName', 'title': 'Vendor', 'className': 'displayName', "defaultContent": "" },
-      { 'data': 'productName', 'title': 'AI Tool', 'className': 'productName', "defaultContent": "" },
-      { 'data': 'aiTypes', 'title': 'AI Type(s)', 'className': 'aiTypes', "defaultContent": "" },
-      { 'data': 'thirdParty', 'title': 'Third Party AI Usage', 'className': 'thirdParty', "defaultContent": "" },
-      { 'data': 'policyLinks', 'title': 'AI Policy & Documentation Links', 'className': 'policyLinks', "defaultContent": "" },
-      { 'data': 'ethicsCategories', 'title': 'Responsible AI Commitments Identified', 'className': 'ResponsibleAICategories', "defaultContent": "" },
-      { 'data': 'userDatarights', 'title': 'User Data & Content Rights', 'className': 'UserDataRights', "defaultContent": "" },
-      { 'data': 'administrativeControl', 'title': 'Administrative Control', 'className': 'administrativeControl', "defaultContent": "" },
-      
-
+      { 'data': 'displayName', 'title': 'Vendor & Publisher', 'className': 'displayName', "defaultContent": "" },
+      { 'data': 'productName', 'title': 'Tool', 'className': 'productName', "defaultContent": "" },
+      { 'data': 'aiTypes', 'title': 'AI Functionality', 'className': 'aiTypes', "defaultContent": "" },
+      { 'data': 'thirdPartyAIUsage', 'title': 'Third Party AI Usage Disclosure', 'className': 'thirdPartyAIUsage', "defaultContent": "" },
+      { 'data': 'thirdPartyAIProviders', 'title': 'Third Party AI Provider(s)', 'className': 'thirdPartyAIProviders', "defaultContent": "" },
+      { 'data': 'useResourceWithoutAI', 'title': 'Can I use this resource without using AI? (Beta)', 'className': 'reuseResourceWithoutAI', "defaultContent": "" },
+      { 'data': 'modelTrainOnData', 'title': 'Does the model train on my data?', 'className': 'modelTrainOnData', "defaultContent": "" },
+      { 'data': 'dataRetained', 'title': 'Is my data retained?', 'className': 'dataRetained', "defaultContent": "" },
     ];
     return tableColumns;
   }
@@ -82,32 +80,8 @@ $(document).ready(function () {
           // Map CSV headers -> your field names used in createTableColumns()
           const rows = (parsed.data || []).map(row => ({
             displayName: row['Display Name'] || '',
-            productName: (function(){
-              var raw = row['Product Name (with Access Link)'] || '';
-              if(!raw) return '';
-              var lines = raw.split(/\r?\n/).map(function(l){ return l.trim(); }).filter(function(l){ return l.length > 0; });
-              var items = [];
-              for(var i = 0; i < lines.length; i += 2) {
-                var name = lines[i];
-                var url = lines[i+1] || '';
-                // If the pair is reversed (first is URL), swap
-                if(url && !/^https?:\/\//i.test(url) && /^https?:\/\//i.test(name)) {
-                  url = name;
-                  name = lines[i+1] || url;
-                }
-                if(url) {
-                  items.push("<a target='_blank' rel='noopener noreferrer' href='" + url + "'>" + name + "</a>");
-                } else {
-                  if(/^https?:\/\//i.test(name)) {
-                    items.push("<a target='_blank' rel='noopener noreferrer' href='" + name + "'>" + name + "</a>");
-                  } else {
-                    items.push(name);
-                  }
-                }
-              }
-              return items.join('<br><br>');
-            })(),
-            aiTypes: row['AI Type(s)'] ? row['AI Type(s)'].split(',').map(function(type) {
+            productName: row['Tool'] || '',
+            aiTypes: row['AI Type(s)'] ? row['AI Type(s)'].split(';').map(function(type) {
               var t = type.trim();
               var colorClass = '';
               switch (t) {
@@ -121,47 +95,43 @@ $(document).ready(function () {
               }
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
             }).join('<br>') : '',
-            ethicsCategories: row['Responsible AI Commitments Identified'] ? row['Responsible AI Commitments Identified'].split(',').map(function(cat){
+            thirdPartyAIUsage: row['Third Party AI Usage Disclosure'] ? row['Third Party AI Usage Disclosure'].map(function(cat){
               var c = cat.trim();
               var cls = '';
-              // match exact known values or use includes for flexibility
-              if(c === 'Ethics') cls = 'bg-primary';
-              else if(c === 'Environment') cls = 'bg-success';
-              else if(c === 'Privacy & Data Practices') cls = 'bg-info text-dark';
+              if(c === 'Yes') cls = 'bg-primary';
+              else if(c === 'Unclear') cls = 'bg-success';
+              else if(c === 'Not Used') cls = 'bg-danger';
+              else if(c === 'No Data Found') cls = 'bg-info text-dark';
+              else if(c === 'Not Applicable') cls = 'bg-warning text-dark';
               else cls = 'bg-secondary';
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
             }).join('<br>') : '',
-            releaseType: row['Release Type'] || '',
-            policyLinks: (function(){
-              var raw = row['AI Policy & Documentation Links'] || '';
-              if(!raw) return '';
-              // split into non-empty trimmed lines (handles \n and \r\n)
-              var lines = raw.split(/\r?\n/).map(function(l){ return l.trim(); }).filter(function(l){ return l.length > 0; });
-              var items = [];
-              for(var i = 0; i < lines.length; i += 2) {
-                var name = lines[i];
-                var url = lines[i+1] || '';
-                // If the pair is reversed (first is URL), swap
-                if(url && !/^https?:\/\//i.test(url) && /^https?:\/\//i.test(name)) {
-                  url = name;
-                  name = lines[i+1] || url;
-                }
-                if(url) {
-                  items.push("<a target='_blank' rel='noopener noreferrer' href='" + url + "'>" + name + "</a>");
-                } else {
-                  // single leftover line: if it's a URL, link it; otherwise show text
-                  if(/^https?:\/\//i.test(name)) {
-                    items.push("<a target='_blank' rel='noopener noreferrer' href='" + name + "'>" + name + "</a>");
-                  } else {
-                    items.push(name);
-                  }
-                }
-              }
-              return items.join('<br><br>');
-            })(),
-            userDatarights: row['User Data and Content Rights'] || '',
-            administrativeControl: row['Administrative Control'] || '',
-            thirdParty: row['Third Party AI Usage'] || '',
+            thirdPartyAIProviders: row['Third Party AI Provider(s)'] || '',
+            useResourceWithoutAI: row['Can I use this resource without using AI? (Beta)'] ? row['Can I use this resource without using AI? (Beta)'].map(function(cat){
+              var c = cat.trim();
+              var cls = '';
+              // match exact known values or use includes for flexibility
+              if(c === 'Yes') cls = 'bg-primary';
+              else if(c === 'No Data Found') cls = 'bg-success';
+              else if(c === 'No') cls = 'bg-danger';
+              else if(c === 'Partial') cls = 'bg-info text-dark';
+              else if(c === 'Unclear') cls = 'bg-warning text-dark';
+              else cls = 'bg-secondary';
+              return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
+            }).join('<br>') : '',
+            modelTrainOnData: row['Does the model train on my data?'] || '',
+            dataRetained: row['Is my data retained?'] ? row['Is my data retained?'].map(function(cat){
+              var c = cat.trim();
+              var cls = '';
+              // match exact known values or use includes for flexibility
+              if(c === 'Yes') cls = 'bg-primary';
+              else if(c === 'No Data Found') cls = 'bg-success';
+              else if(c === 'No') cls = 'bg-danger';
+              else if(c === 'Partial') cls = 'bg-info text-dark';
+              else if(c === 'Unclear') cls = 'bg-warning text-dark';
+              else cls = 'bg-secondary';
+              return "<span style='margin-bottom: 2px' class='badge rounded-pill " + cls + "'>" + c + "</span>";
+            }).join('<br>') : '',
           }));
 
           callback({ data: rows });
