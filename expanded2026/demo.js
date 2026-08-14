@@ -80,7 +80,31 @@ $(document).ready(function () {
           // Map CSV headers -> your field names used in createTableColumns()
           const rows = (parsed.data || []).map(row => ({
             displayName: row['Database Vendor / Publisher'] || '',
-            productName: row['AI Tool Name (with Access Link)'] || '',
+            productName: (function(){
+              var raw = row['AI Tool Name (with Access Link)'] || '';
+              if(!raw) return '';
+              var lines = raw.split(/\r?\n/).map(function(l){ return l.trim(); }).filter(function(l){ return l.length > 0; });
+              var items = [];
+              for(var i = 0; i < lines.length; i += 2) {
+                var name = lines[i];
+                var url = lines[i+1] || '';
+                // If the pair is reversed (first is URL), swap
+                if(url && !/^https?:\/\//i.test(url) && /^https?:\/\//i.test(name)) {
+                  url = name;
+                  name = lines[i+1] || url;
+                }
+                if(url) {
+                  items.push("<a target='_blank' rel='noopener noreferrer' href='" + url + "'>" + name + "</a>");
+                } else {
+                  if(/^https?:\/\//i.test(name)) {
+                    items.push("<a target='_blank' rel='noopener noreferrer' href='" + name + "'>" + name + "</a>");
+                  } else {
+                    items.push(name);
+                  }
+                }
+              }
+              return items.join('<br><br>');
+            })(),
             aiTypes: row['AI Functionality'] ? row['AI Functionality'].split(',').map(function(type) {
               var t = type.trim();
               var colorClass = '';
