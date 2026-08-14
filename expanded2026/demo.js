@@ -120,7 +120,7 @@ $(document).ready(function () {
               }
               return "<span style='margin-bottom: 2px' class='badge rounded-pill " + colorClass + "'>" + t + "</span>";
             }).join('<br>') : '',
-            aiPolicyAndDocumentation: (function(){
+            aiPolicyAndDocumentationLinks: (function(){
               var raw = row['AI Policy & Documentation Links'] || '';
               if(!raw) return '';
               var lines = raw.split(/\r?\n/).map(function(l){ return l.trim(); }).filter(function(l){ return l.length > 0; });
