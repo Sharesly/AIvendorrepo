@@ -1,4 +1,7 @@
-h1,
+h1 {  color: #374656;
+
+}
+
 table.dataTable,
 table.dataTable thead,
 table.dataTable tbody,
@@ -113,5 +116,5 @@ table.dataTable td.COMPLETED {
 }
 
 .dataTables_filter input {
-  width: 350px;
+  width: 600px;
 }
