@@ -53,7 +53,7 @@ $(document).ready(function () {
   // Filter state tracking
   var activeFilters = {
     aiTypes: '',
-    governance: []
+    governance: ''
   };
 
   function applyFilters() {
@@ -69,28 +69,25 @@ $(document).ready(function () {
       $('#toolsShown').text(count + ' tool' + (count !== 1 ? 's' : '') + ' shown');
     }
     
-    var hasActiveFilters = activeFilters.aiTypes !== '' || activeFilters.governance.length > 0;
+    var hasActiveFilters = activeFilters.aiTypes !== '' || activeFilters.governance !== '';
     $('#clearFilters').toggle(hasActiveFilters);
   }
 
   function matchesGovernanceFilter(data) {
-    if (activeFilters.governance.length === 0) return true;
+    if (activeFilters.governance === '') return true;
 
-    // Check if data matches ANY of the selected governance filters (OR logic)
-    return activeFilters.governance.some(function(filterType) {
-      switch (filterType) {
-        case 'aiOptional':
-          return data.useResourceWithoutAI && data.useResourceWithoutAI.includes('Yes');
-        case 'noTraining':
-          return data.modelTrainOnData && data.modelTrainOnData.includes('Not Used');
-        case 'notRetained':
-          return data.dataRetained && data.dataRetained.includes('Not Retained');
-        case 'needsReview':
-          return data.thirdPartyAIUsage && (data.thirdPartyAIUsage.includes('Unclear') || data.thirdPartyAIUsage.includes('No Data Found'));
-        default:
-          return false;
-      }
-    });
+    switch (activeFilters.governance) {
+      case 'aiOptional':
+        return data.useResourceWithoutAI && data.useResourceWithoutAI.includes('Yes');
+      case 'noTraining':
+        return data.modelTrainOnData && data.modelTrainOnData.includes('Not Used');
+      case 'notRetained':
+        return data.dataRetained && data.dataRetained.includes('Not Retained');
+      case 'needsReview':
+        return data.thirdPartyAIUsage && (data.thirdPartyAIUsage.includes('Unclear') || data.thirdPartyAIUsage.includes('No Data Found'));
+      default:
+        return true;
+    }
   }
 
   function setupFilterButtons() {
@@ -99,35 +96,12 @@ $(document).ready(function () {
       var filterType = $(this).data('filter-type');
       var filterValue = $(this).data('filter-value');
       
-      if (filterType === 'aiTypes') {
-        // Single select for aiTypes
-        $('.filter-btn[data-filter-type="aiTypes"]').removeClass('active');
-        activeFilters.aiTypes = filterValue;
-        $(this).addClass('active');
-      } else if (filterType === 'governance') {
-        // Multi-select for governance
-        if (filterValue === '') {
-          // "All records" button - clear all governance filters
-          activeFilters.governance = [];
-          $('.filter-btn[data-filter-type="governance"]').removeClass('active');
-          $(this).addClass('active');
-        } else {
-          // Remove "All records" active state
-          $('.filter-btn[data-filter-type="governance"][data-filter-value=""]').removeClass('active');
-          
-          // Toggle the selected button
-          var index = activeFilters.governance.indexOf(filterValue);
-          if (index > -1) {
-            // Remove if already selected
-            activeFilters.governance.splice(index, 1);
-            $(this).removeClass('active');
-          } else {
-            // Add if not selected
-            activeFilters.governance.push(filterValue);
-            $(this).addClass('active');
-          }
-        }
-      }
+      // Clear buttons in the same group
+      $('.filter-btn[data-filter-type="' + filterType + '"]').removeClass('active');
+      
+      // Set active filter
+      activeFilters[filterType] = filterValue;
+      $(this).addClass('active');
       
       applyFilters();
     });
@@ -136,10 +110,8 @@ $(document).ready(function () {
     $('#clearFilters').click(function(e) {
       e.preventDefault();
       activeFilters.aiTypes = '';
-      activeFilters.governance = [];
+      activeFilters.governance = '';
       $('.filter-btn').removeClass('active');
-      $('.filter-btn[data-filter-type="aiTypes"][data-filter-value=""]').addClass('active');
-      $('.filter-btn[data-filter-type="governance"][data-filter-value=""]').addClass('active');
       applyFilters();
     });
   }
