@@ -80,9 +80,9 @@ $(document).ready(function () {
       case 'aiOptional':
         return data.useResourceWithoutAI && data.useResourceWithoutAI.includes('Yes');
       case 'noTraining':
-        return data.modelTrainOnData && data.modelTrainOnData.includes('No');
+        return data.modelTrainOnData && data.modelTrainOnData.includes('Not Used');
       case 'notRetained':
-        return data.dataRetained && data.dataRetained.includes('No');
+        return data.dataRetained && data.dataRetained.includes('Not Retained');
       case 'needsReview':
         return data.thirdPartyAIUsage && (data.thirdPartyAIUsage.includes('Unclear') || data.thirdPartyAIUsage.includes('No Data Found'));
       default:
