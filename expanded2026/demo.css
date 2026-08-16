@@ -10,6 +10,10 @@ table.dataTable td {
   line-height: 1.7;
 }
 
+table.dataTable thead th {
+  vertical-align: middle;
+}
+
 table.dataTable thead{
   background-color: lightgrey;
 }
