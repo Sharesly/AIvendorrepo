@@ -1,3 +1,4 @@
+h1,
 table.dataTable,
 table.dataTable thead,
 table.dataTable tbody,
@@ -105,4 +106,12 @@ table.dataTable td.COMPLETED {
   white-space: normal;
   word-break: break-word;
   overflow-wrap: anywhere;
+}
+
+.dataTables_filter {
+  float: left !important;
+}
+
+.dataTables_filter input {
+  width: 350px;
 }
