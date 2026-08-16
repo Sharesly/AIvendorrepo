@@ -21,8 +21,35 @@
   <body style="padding: 25px">
     <h1>Find a library database or AI feature</h1>
 
-<h5 style="padding-bottom: 25px">
-    </h5>
+    <div class="filters-container" style="padding-bottom: 25px">
+      <div class="filter-section">
+        <h6>Filter by AI functionality</h6>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter-type="aiTypes" data-filter-value="">Any feature</button>
+          <button class="filter-btn" data-filter-type="aiTypes" data-filter-value="Summarization">Summarization</button>
+          <button class="filter-btn" data-filter-type="aiTypes" data-filter-value="Search Interpretation">Search interpretation</button>
+          <button class="filter-btn" data-filter-type="aiTypes" data-filter-value="Generative">Generative AI</button>
+          <button class="filter-btn" data-filter-type="aiTypes" data-filter-value="Recommender">Recommender</button>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <h6>Governance quick views</h6>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter-type="governance" data-filter-value="">All records</button>
+          <button class="filter-btn" data-filter-type="governance" data-filter-value="aiOptional">AI optional</button>
+          <button class="filter-btn" data-filter-type="governance" data-filter-value="noTraining">No model training</button>
+          <button class="filter-btn" data-filter-type="governance" data-filter-value="notRetained">Data not retained</button>
+          <button class="filter-btn" data-filter-type="governance" data-filter-value="needsReview" style="background-color: #3066BE; color: white;">Needs review</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-status">
+      <span id="toolsShown"></span>
+      <a href="#" id="clearFilters" style="display:none;">Clear filters</a>
+    </div>
+
     <!--The script will write the table to this div
     -->
     <div id="googleSheetsDataTable">

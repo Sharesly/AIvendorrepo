@@ -118,3 +118,65 @@ table.dataTable td.COMPLETED {
 .dataTables_filter input {
   width: 600px;
 }
+.filters-container {
+  margin: 25px 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section h6 {
+  color: #374656;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 2px solid #d0d0d0;
+  background-color: white;
+  color: #374656;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #3066BE;
+  background-color: #f0f0f0;
+}
+
+.filter-btn.active {
+  background-color: #3066BE;
+  color: white;
+  border-color: #3066BE;
+}
+
+.filter-status {
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+#clearFilters {
+  margin-left: 20px;
+  color: #3066BE;
+  text-decoration: underline;
+}
+
+#clearFilters:hover {
+  color: #1a3a7a;
+}

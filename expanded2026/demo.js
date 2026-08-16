@@ -50,6 +50,91 @@ $(document).ready(function () {
       });
     }
 
+  // Filter state tracking
+  var activeFilters = {
+    aiTypes: '',
+    governance: ''
+  };
+
+  function applyFilters() {
+    oTable.draw();
+    updateToolsCount();
+  }
+
+  function updateToolsCount() {
+    var count = oTable.rows({ search: 'applied' }).count();
+    if (count === 0) {
+      $('#toolsShown').text('No tools found');
+    } else {
+      $('#toolsShown').text(count + ' tool' + (count !== 1 ? 's' : '') + ' shown');
+    }
+    
+    var hasActiveFilters = activeFilters.aiTypes !== '' || activeFilters.governance !== '';
+    $('#clearFilters').toggle(hasActiveFilters);
+  }
+
+  function matchesGovernanceFilter(data) {
+    if (activeFilters.governance === '') return true;
+
+    switch (activeFilters.governance) {
+      case 'aiOptional':
+        return data.useResourceWithoutAI && data.useResourceWithoutAI.includes('Yes');
+      case 'noTraining':
+        return data.modelTrainOnData && data.modelTrainOnData.includes('No');
+      case 'notRetained':
+        return data.dataRetained && data.dataRetained.includes('No');
+      case 'needsReview':
+        return data.thirdPartyAIUsage && (data.thirdPartyAIUsage.includes('Unclear') || data.thirdPartyAIUsage.includes('No Data Found'));
+      default:
+        return true;
+    }
+  }
+
+  function setupFilterButtons() {
+    $('.filter-btn').click(function(e) {
+      e.preventDefault();
+      var filterType = $(this).data('filter-type');
+      var filterValue = $(this).data('filter-value');
+      
+      // Clear buttons in the same group
+      $('.filter-btn[data-filter-type="' + filterType + '"]').removeClass('active');
+      
+      // Set active filter
+      activeFilters[filterType] = filterValue;
+      $(this).addClass('active');
+      
+      applyFilters();
+    });
+
+    // Clear filters button
+    $('#clearFilters').click(function(e) {
+      e.preventDefault();
+      activeFilters.aiTypes = '';
+      activeFilters.governance = '';
+      $('.filter-btn').removeClass('active');
+      applyFilters();
+    });
+  }
+
+  // Custom DataTable filter function
+  $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+    var rowData = settings.aoData[dataIndex]._aData;
+    
+    // Check AI Types filter
+    if (activeFilters.aiTypes !== '') {
+      if (!rowData.aiTypes || !rowData.aiTypes.includes(activeFilters.aiTypes)) {
+        return false;
+      }
+    }
+    
+    // Check governance filters
+    if (!matchesGovernanceFilter(rowData)) {
+      return false;
+    }
+    
+    return true;
+  });
+
   // create the table container and object
   $('#googleSheetsDataTable').html('<table cellpadding="0" cellspacing="0" border="0" class="display table" id="data-table-container" style="width:100%"></table>');
   var url = 'https://docs.google.com/spreadsheets/d/1uJA6Y0Uh_5bny2IoKXR4PuIuWsD6PF5S/gviz/tq?tqx=out:csv&sheet=Vendors';
@@ -225,6 +310,8 @@ $(document).ready(function () {
     'columns': createTableColumns(),
     'initComplete': function (settings) {
       filterButtons();
+      setupFilterButtons();
+      updateToolsCount();
     },
     //this functionruns after each row is created - used here to add CSS classes for styling based on cell content
     'createdRow': function (row, data, dataIndex) {
