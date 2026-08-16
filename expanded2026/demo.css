@@ -116,7 +116,7 @@ table.dataTable td.COMPLETED {
 }
 
 .dataTables_filter input {
-  width: 600px;
+  width: 600px !important;
 }
 .filters-container {
   margin: 25px 0;
@@ -143,15 +143,22 @@ table.dataTable td.COMPLETED {
 }
 
 .filter-btn {
-  padding: 8px 16px;
+  padding: 10px 20px;
   border: 2px solid #d0d0d0;
   background-color: white;
   color: #374656;
-  border-radius: 20px;
+  border-radius: 50px;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.7;
   transition: all 0.2s ease;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .filter-btn:hover {
