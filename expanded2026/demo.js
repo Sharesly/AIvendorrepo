@@ -145,7 +145,7 @@ $(document).ready(function () {
   var oTable = $('#data-table-container').DataTable({
     responsive: true,
     autoWidth: false,
-    scrollY: '65vh',
+    scrollY: '700px',
     scrollX: true,
     scrollCollapse: true,
     buttons: [],

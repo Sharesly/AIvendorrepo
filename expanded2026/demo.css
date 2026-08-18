@@ -37,7 +37,7 @@ table.dataTable thead{
 }
 
 .dataTables_scrollBody {
-  max-height: 65vh;
+  max-height: 700px;
   overflow-y: auto;
 }
 
