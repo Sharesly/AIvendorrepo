@@ -19,11 +19,25 @@ table.dataTable thead th {
   top: 0;
   z-index: 10;
   vertical-align: middle;
-  background-color: lightgrey;
+  background-color: lightgrey !important;
 }
 
 table.dataTable thead{
   background-color: lightgrey;
+}
+
+.dataTables_scrollHead,
+.dataTables_scrollHeadInner,
+.dataTables_scrollHead table {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: lightgrey !important;
+}
+
+.dataTables_scrollBody {
+  max-height: 65vh;
+  overflow-y: auto;
 }
 
 #googleSheetsDataTable {
