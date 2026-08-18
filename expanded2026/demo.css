@@ -15,11 +15,19 @@ table.dataTable td {
 }
 
 table.dataTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   vertical-align: middle;
+  background-color: lightgrey;
 }
 
 table.dataTable thead{
   background-color: lightgrey;
+}
+
+#googleSheetsDataTable {
+  overflow-x: auto;
 }
 
 table.dataTable tbody tr:nth-child(odd) {
